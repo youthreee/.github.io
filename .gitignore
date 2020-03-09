@@ -1,0 +1,4 @@
+# : comments
+
+#ignore all map file
+doc/*.map
