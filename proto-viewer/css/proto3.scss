@@ -8,6 +8,8 @@ $yellow: #ffeb60;
 
 $dark-text1: rgba(255, 255, 255, 0.9);
 
+$slide_bg: rgba(191, 192, 196, 0.3);
+
 $bg_white: #fff;
 $bg_yellow: #faf7d7;
 $bg_green: #e1edc7;
@@ -572,7 +574,6 @@ footer {
 
 .settings {
   padding: 0 16px;
-  overflow: hidden;
   box-sizing: border-box;
   // 그냥 설정
   &.detail {
@@ -660,7 +661,23 @@ footer {
         }
       }
       .font_select {
+        position: relative;
         cursor: pointer;
+
+        }
+      }
+      .font_align {
+        position: relative;
+        cursor: pointer;
+        background-color: $slide_bg;
+        width: 50%;
+        &:before {
+          content: '';
+          @include absoluteCentering();
+          left: 0;
+          width: 24px;
+          height: 24px;
+          border: 1px solid red;
       }
       .font_size {
         position: absolute;
@@ -4881,7 +4898,8 @@ small {
     display: none;
   }
   &.touching {
-    background: transparent;
+      z-index: 9999;
+      background: transparent !important;
     box-shadow: none;
     &:before,
     .brightness,
@@ -4892,6 +4910,9 @@ small {
     .font_select,
     .quotes {
       opacity: 0;
+    }
+    .slider_wrapper {
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
     }
   }
   .visual_detail {
@@ -5157,7 +5178,6 @@ small {
   }
   .contents {
     position: relative;
-    overflow: hidden;
     transition: height 0.5s ease-in-out;
   }
   .contents + .contents {
