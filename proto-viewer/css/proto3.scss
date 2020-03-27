@@ -140,6 +140,9 @@ em {
     top: 0;
     margin: auto;
   }
+  @media screen and (max-width: 411px){
+    display: none;
+  }
 }
 
 [type="button"] {
@@ -5000,7 +5003,6 @@ small {
   right: -100%;
   // right: 0;
   top: 0;
-  padding-top: 56px;
   width: 75%;
   height: 100%;
   overflow-x: hidden;
@@ -5009,6 +5011,15 @@ small {
   background: rgba(255, 255, 255, 1);
   box-shadow: -4px 0px 50px rgba(0, 0, 0, 0.25);
   transition: 0.2s ease-in-out;
+  @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+      padding-top: 56px;
+  }
+  @media screen and (min-width: 411px) {
+    padding-top: 56px;
+  }
   &.show {
     right: 0;
   }
@@ -5035,7 +5046,8 @@ small {
     .contents:before,
     .background,
     .font_select,
-    .quotes {
+    .quotes,
+    .setting_title {
       opacity: 0;
     }
     .slider_wrapper {

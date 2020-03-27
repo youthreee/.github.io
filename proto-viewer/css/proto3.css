@@ -373,6 +373,12 @@ em {
   margin: auto;
 }
 
+@media screen and (max-width: 411px) {
+  .ios-header {
+    display: none;
+  }
+}
+
 [type="button"] {
   border: 0;
   padding: 4px 8px;
@@ -5478,7 +5484,6 @@ small {
   z-index: 99999;
   right: -100%;
   top: 0;
-  padding-top: 56px;
   width: 75%;
   height: 100%;
   overflow-x: hidden;
@@ -5489,6 +5494,18 @@ small {
           box-shadow: -4px 0px 50px rgba(0, 0, 0, 0.25);
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  #menu {
+    padding-top: 56px;
+  }
+}
+
+@media screen and (min-width: 411px) {
+  #menu {
+    padding-top: 56px;
+  }
 }
 
 #menu.show {
@@ -5524,7 +5541,8 @@ small {
 #menu.touching .contents:before,
 #menu.touching .background,
 #menu.touching .font_select,
-#menu.touching .quotes {
+#menu.touching .quotes,
+#menu.touching .setting_title {
   opacity: 0;
 }
 
