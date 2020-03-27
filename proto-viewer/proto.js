@@ -149,7 +149,6 @@ $(function () {
     $('.visual_detail li').on('mousedown touchstart', function () {
         $(this).siblings().css('opacity', '0');
         $menu.addClass('touching');
-
     });
     $('.visual_detail li').on('mouseup touchend', function () {
         var e = $(this).find('input').attr('id')
@@ -157,8 +156,7 @@ $(function () {
             setTimeout(function(){
                 $('.visual_detail li').css('opacity', 1);
                 $menu.removeClass('touching');
-                console.log($(this));
-            },500);
+            },1000);
         } else {
             $menu.removeClass('touching');
             $(this).siblings().css('opacity', '1');
