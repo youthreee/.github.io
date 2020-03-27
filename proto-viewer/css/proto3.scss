@@ -6,9 +6,13 @@ $gray: #eff1f5;
 $light_gray: #f7f8fa;
 $yellow: #ffeb60;
 
-$dark-text1: rgba(255, 255, 255, 0.9);
-
 $slide_bg: rgba(191, 192, 196, 0.3);
+
+$dark-text1: rgba(255, 255, 255, 0.9);
+$dark-slide: rgba(239, 241, 245, 0.3);
+
+$light-text1: #333; 
+$light-slide: rgba(191, 192, 196, 0.5);
 
 $bg_white: #fff;
 $bg_yellow: #faf7d7;
@@ -287,6 +291,7 @@ em {
   font-family: "Kopub Batang";
   font-size: 17px;
   text-indent: 17px;
+  text-align: justify;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -296,6 +301,9 @@ em {
     padding: 0 !important;
     letter-spacing: -0.6px;
     line-height: 31px;
+  }
+  &.left_align {
+    text-align: left;
   }
 }
 
@@ -435,21 +443,30 @@ footer {
   border-radius: 16px;
   overflow: hidden;
   .range-field {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     background-color: #eff1f5;
     > p {
       position: absolute;
-      z-index: 1;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      display: block;
       height: 100%;
-      background: #e2e2e2;
       overflow: hidden;
       text-indent: 9999px;
+      &:after {
+        content: "";
+        position: relative;
+        display: block;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background: $light-slide;
+        transition: .3s ease;
+      }
     }
   }
   input[type="range"] {
@@ -493,8 +510,8 @@ footer {
     }
   }
   [type="radio"]:checked + label {
-    background: #fffdef;
-    border: 2px solid #ffeb60;
+    background: $yellow;
+    border-color: $yellow;
     color: #333;
     font-weight: bold;
   }
@@ -575,6 +592,14 @@ footer {
 .settings {
   padding: 0 16px;
   box-sizing: border-box;
+  .setting_title {
+    font-weight: bold;
+    color: $light-text1;
+    .btn_reset {
+      position: absolute;
+      right: 0;
+    }
+  }
   // 그냥 설정
   &.detail {
     ul {
@@ -589,6 +614,7 @@ footer {
           top: 0;
           left: 0;
           transform: none;
+          display: block;
           margin-bottom: 8px;
           font-weight: bold;
           & + span {
@@ -604,9 +630,27 @@ footer {
   }
   .slider_wrapper {
     position: relative;
-    > svg {
+    z-index: 6;
+    strong {
+      @include absoluteCentering();
+      z-index: 1;
+      left: 40px;
+      display: block;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 20px;
+      span {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+        color: #ffc004;
+      }
+    }
+    svg {
       position: absolute;
-      z-index: 4;
+      z-index: 1;
       top: 0;
       left: 0;
       right: 0;
@@ -620,11 +664,7 @@ footer {
     padding: 8px 16px;
     box-sizing: border-box;
     .brightness {
-      .ck {
-        position: absolute;
-        top: 10px;
-        right: 0;
-      }
+      padding-right: 48+8px;
       &:after {
         content: "";
         position: absolute;
@@ -634,6 +674,45 @@ footer {
         height: 1px;
         background: #f0f0f0;
       }
+      strong {
+        span {
+          color: #333;
+          opacity: 0;
+          font-size: 80%;
+          &.show {
+            opacity: .5;
+          }
+        }
+      }
+      .btn_device {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        top: 8px;
+        right: 0;
+        width: 48px;
+        height: 48px;
+        overflow: hidden;
+        input + span {
+          position: absolute;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          background-image: url("data:image/svg+xml,%3Csvg width='18' height='28' viewBox='0 0 18 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.85714 0.5H14.1429C16.0058 0.5 17.5 1.98637 17.5 3.81818V24.1818C17.5 26.0136 16.0058 27.5 14.1429 27.5H3.85714C1.9942 27.5 0.5 26.0136 0.5 24.1818V3.81818C0.5 1.98637 1.9942 0.5 3.85714 0.5Z' stroke='%23444444'/%3E%3Cpath d='M7 2.5H11' stroke='%23444444' stroke-linecap='round'/%3E%3Ccircle cx='8.99992' cy='15' r='2.16951' stroke='%23444444' stroke-width='0.994318'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.49706 9.99998C9.49706 9.72541 9.27448 9.50282 8.9999 9.50282C8.72533 9.50282 8.50274 9.72541 8.50274 9.99998V10.6666C8.50274 10.9412 8.72533 11.1638 8.9999 11.1638C9.27448 11.1638 9.49706 10.9412 9.49706 10.6666V9.99998ZM9.49706 19.3333C9.49706 19.0587 9.27448 18.8362 8.9999 18.8362C8.72533 18.8362 8.50274 19.0587 8.50274 19.3333V20C8.50274 20.2746 8.72533 20.4971 8.9999 20.4971C9.27448 20.4971 9.49706 20.2746 9.49706 20V19.3333ZM14.4971 15C14.4971 15.2746 14.2745 15.4971 13.9999 15.4971H13.3332C13.0587 15.4971 12.8361 15.2746 12.8361 15C12.8361 14.7254 13.0587 14.5028 13.3332 14.5028H13.9999C14.2745 14.5028 14.4971 14.7254 14.4971 15ZM4.66651 15.4971C4.94108 15.4971 5.16367 15.2746 5.16367 15C5.16367 14.7254 4.94108 14.5028 4.66651 14.5028H3.99984C3.72527 14.5028 3.50269 14.7254 3.50269 15C3.50269 15.2746 3.72527 15.4971 3.99984 15.4971H4.66651ZM12.8869 18.8873C12.6928 19.0815 12.378 19.0815 12.1838 18.8873L11.241 17.9445C11.0469 17.7504 11.0469 17.4356 11.241 17.2414C11.4352 17.0473 11.7499 17.0473 11.9441 17.2414L12.8869 18.1843C13.0811 18.3784 13.0811 18.6932 12.8869 18.8873ZM6.05575 12.7591C6.2499 12.9532 6.56469 12.9532 6.75884 12.7591C6.95299 12.5649 6.95299 12.2501 6.75884 12.056L5.81603 11.1132C5.62188 10.919 5.3071 10.919 5.11294 11.1132C4.91879 11.3073 4.91879 11.6221 5.11294 11.8163L6.05575 12.7591ZM5.1129 18.8873C4.91875 18.6932 4.91875 18.3784 5.1129 18.1843L6.05571 17.2414C6.24986 17.0473 6.56464 17.0473 6.7588 17.2414C6.95295 17.4356 6.95295 17.7504 6.7588 17.9445L5.81599 18.8873C5.62183 19.0815 5.30705 19.0815 5.1129 18.8873ZM11.2412 12.056C11.0471 12.2501 11.0471 12.5649 11.2412 12.7591C11.4354 12.9532 11.7501 12.9532 11.9443 12.7591L12.8871 11.8163C13.0813 11.6221 13.0813 11.3073 12.8871 11.1132C12.693 10.919 12.3782 10.919 12.184 11.1132L11.2412 12.056Z' fill='%23444444'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          border-radius: 16px;
+          background-color: $slide_bg;
+        }
+        input:checked + span {
+          background-color: $yellow;
+        }
+      }
+      .slider_wrapper.auto {
+        .range-field > p:after {
+          background-color: $yellow;
+        }
+      }
     }
     .font_align {
       position: relative;
@@ -642,13 +721,15 @@ footer {
       border-radius: 16px;
       overflow: hidden;
       height: 100%;
-      strong {
-        @include absoluteCentering();
-        // z-index: 999;
+      &:after{
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
         left: 0;
         right: 0;
-        margin: auto;
-        text-align: center;
+        bottom: 0;
+        background: $bg_white;
       }
       .switch_type2 {
         position: absolute;
@@ -657,20 +738,59 @@ footer {
         left: 0;
         right: 0;
         bottom: 0;
-        input[type="checkbox"]{
+        input[type="checkbox"] {
           opacity: 0;
           & + span {
             @include absoluteCentering();
             z-index: -1;
-            right: 40px;
+            right: 32px;
             left: 0;
             height: 100%;
-            background: #aaa;
+            border-radius: 16px;
+            background: $light-slide;
+            transition: 0.3s ease;
+            & ~ strong:before {
+              opacity: 1;
+            }
           }
           &:checked + span {
             right: 0;
-            left: 40px;
+            left: 32px;
+            & ~ strong:before {
+              opacity: 0.5;
+            }
+            & ~ strong:after {
+              opacity: 1;
+            }
           }
+        }
+      }
+      strong {
+        @include absoluteCentering();
+        // z-index: 999;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        font-size: 14px;
+        color: #333;
+        font-weight: normal;
+        &:before,
+        &:after {
+          content: "";
+          @include absoluteCentering();
+          z-index: 1;
+          width: 24px;
+          height: 24px;
+          opacity: 0.5;
+        }
+        &:before {
+          left: 8px;
+          background-image: url("data:image/svg+xml,%3Csvg width='25' height='24' viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.01636 8L18.2664 8' stroke='%23444444' stroke-width='2.08333' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6.01636 12.1667L18.5164 12.1667' stroke='%23444444' stroke-width='2.08333' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6.01636 16.3331L18.5164 16.3331' stroke='%23444444' stroke-width='2.08333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+        &:after {
+          right: 8px;
+          background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8H12' stroke='%23444444' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6 12H18' stroke='%23444444' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6 16H18' stroke='%23444444' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
       }
     }
@@ -752,27 +872,10 @@ footer {
       padding: 8px 0;
       box-sizing: border-box;
       color: #666;
-      .icon {
+      svg.icon {
         @include absoluteCentering();
         left: 8px;
-        z-index: 2;
-      }
-      > strong {
-        @include absoluteCentering();
-        z-index: 2;
-        left: 40px;
-        display: block;
-        font-size: 14px;
-        font-weight: normal;
-        line-height: 20px;
-        span {
-          font-style: normal;
-          font-weight: bold;
-          font-size: 14px;
-          line-height: 20px;
-          /* identical to box height, or 143% */
-          color: #ffc004;
-        }
+        right: auto;
       }
       > span {
         opacity: 0.6;
@@ -4898,7 +5001,7 @@ small {
   // right: 0;
   top: 0;
   padding-top: 56px;
-  width: 70%;
+  width: 75%;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;

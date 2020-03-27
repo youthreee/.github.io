@@ -124,6 +124,48 @@ $(function () {
         $phone.addClass(colorName);
     });
 
+    //밝기 체크
+    $('#deviceBrightness').on('click',function(){
+        if($(this).is(':checked')){
+            $('.brightness .slider_wrapper').addClass('auto');
+            $('.brightness .slider_wrapper strong span').addClass('show');
+        }else{
+            $('.brightness .slider_wrapper').removeClass('auto')
+            $('.brightness .slider_wrapper strong span').removeClass('show');
+        }
+    });
+
+    //본문 정렬
+    $('#ft_align').on('click',function(){
+        if($(this).is(':checked')){
+            $bodybook.addClass('left_align');
+
+        }else{
+            $bodybook.removeClass('left_align')
+        }
+    });
+
+    //본문 
+    $('.visual_detail li').on('mousedown touchstart', function () {
+        $(this).siblings().css('opacity', '0');
+        $menu.addClass('touching');
+
+    });
+    $('.visual_detail li').on('mouseup touchend', function () {
+        var e = $(this).find('input').attr('id')
+        if(e=='ft_align'){
+            setTimeout(function(){
+                $('.visual_detail li').css('opacity', 1);
+                $menu.removeClass('touching');
+                console.log($(this));
+            },500);
+        } else {
+            $menu.removeClass('touching');
+            $(this).siblings().css('opacity', '1');
+        }
+    });
+
+
     // $tabArcodian.on('click',function(){
     // 	$(this).toggleClass('open',500);
     // 	var $this = $(this);
@@ -160,21 +202,7 @@ $(function () {
         gageBar.css('width', (gageWidth + '%'));
         // console.log(gageBar);
     });
-
-    $('.visual_detail .slider_wrapper form').on('mousedown touchstart', function () {
-        $menu.addClass('touching');
-        console.log("ㅇㅇ");
-
-    });
-    $('.display').on('mouseup touchend', function () {
-        $menu.removeClass('touching');
-    });
-    $('.visual_detail .slider_wrapper').on('mousedown touchstart', function () {
-        $(this).parent().siblings().css('opacity', '0');
-    });
-    $('.visual_detail .slider_wrapper').on('mouseup touchend', function () {
-        $(this).parent().siblings().css('opacity', '1');
-    });
+    
 
     $('.font_size').on('click', function () {
         $(this).toggleClass('short');
