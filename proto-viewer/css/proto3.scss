@@ -259,8 +259,8 @@ em {
     &.#{$name} header:before,
     &.#{$name} .readingMode_footer:before,
     &.#{$name} #menu {
-        background-color: #{$code};
-        color: #{$text};
+      background-color: #{$code};
+      color: #{$text};
     }
     &.#{$name} header > .title,
     &.#{$name} .paging,
@@ -635,6 +635,72 @@ footer {
         background: #f0f0f0;
       }
     }
+    .font_align {
+      position: relative;
+      cursor: pointer;
+      background-color: $slide_bg;
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+      strong {
+        @include absoluteCentering();
+        // z-index: 999;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+      }
+      .switch_type2 {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        input[type="checkbox"]{
+          opacity: 0;
+          & + span {
+            @include absoluteCentering();
+            z-index: -1;
+            right: 40px;
+            left: 0;
+            height: 100%;
+            background: #aaa;
+          }
+          &:checked + span {
+            right: 0;
+            left: 40px;
+          }
+        }
+      }
+    }
+    .font_select {
+      position: relative;
+      cursor: pointer;
+      > strong {
+        @include absoluteCentering();
+        left: 40px;
+      }
+      border-radius: 16px;
+      background: #eff1f5;
+      height: 48px;
+      &:after {
+        content: "";
+        @include absoluteCentering();
+        right: 8px;
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 11L10 8L7 5' stroke='%23999999' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        background-size: contain;
+      }
+    }
+    .font_size {
+      position: absolute;
+      top: 8px;
+      right: 0;
+      width: 60px;
+      height: 48px;
+    }
     .font {
       min-height: 48px;
       // padding-right: 67px;
@@ -643,48 +709,6 @@ footer {
       .font_select {
         position: relative;
         width: 48%;
-        > strong {
-          @include absoluteCentering();
-          left: 40px;
-        }
-        border-radius: 16px;
-        background: #eff1f5;
-        height: 48px;
-        &:after {
-          content: "";
-          @include absoluteCentering();
-          right: 8px;
-          width: 16px;
-          height: 16px;
-          background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 11L10 8L7 5' stroke='%23999999' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-          background-size: contain;
-        }
-      }
-      .font_select {
-        position: relative;
-        cursor: pointer;
-
-        }
-      }
-      .font_align {
-        position: relative;
-        cursor: pointer;
-        background-color: $slide_bg;
-        width: 50%;
-        &:before {
-          content: '';
-          @include absoluteCentering();
-          left: 0;
-          width: 24px;
-          height: 24px;
-          border: 1px solid red;
-      }
-      .font_size {
-        position: absolute;
-        top: 8px;
-        right: 0;
-        width: 60px;
-        height: 48px;
       }
       .slider_wrapper {
         position: absolute;
@@ -4898,8 +4922,8 @@ small {
     display: none;
   }
   &.touching {
-      z-index: 9999;
-      background: transparent !important;
+    z-index: 9999;
+    background: transparent !important;
     box-shadow: none;
     &:before,
     .brightness,
@@ -4916,7 +4940,13 @@ small {
     }
   }
   .visual_detail {
-    margin-top: -16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: -16px -16px 0;
+    li {
+      width: calc(50% - 4px);
+    }
   }
 }
 
@@ -6950,115 +6980,115 @@ textarea.materialize-textarea {
   pointer-events: none;
 }
 
-[type="checkbox"] + span:not(.lever) {
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  display: inline-block;
-  height: 25px;
-  line-height: 25px;
-  font-size: 1rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+// [type="checkbox"] + span:not(.lever) {
+//   position: relative;
+//   padding-left: 35px;
+//   cursor: pointer;
+//   display: inline-block;
+//   height: 25px;
+//   line-height: 25px;
+//   font-size: 1rem;
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
 
-[type="checkbox"] + span:not(.lever):before,
-[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  z-index: 0;
-  border: 2px solid #5a5a5a;
-  border-radius: 1px;
-  margin-top: 3px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
+// [type="checkbox"] + span:not(.lever):before,
+// [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 18px;
+//   height: 18px;
+//   z-index: 0;
+//   border: 2px solid #5a5a5a;
+//   border-radius: 1px;
+//   margin-top: 3px;
+//   -webkit-transition: 0.2s;
+//   transition: 0.2s;
+// }
 
-[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
-  border: 0;
-  -webkit-transform: scale(0);
-  transform: scale(0);
-}
+// [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+//   border: 0;
+//   -webkit-transform: scale(0);
+//   transform: scale(0);
+// }
 
-[type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
-  border: none;
-  background-color: rgba(0, 0, 0, 0.42);
-}
+// [type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
+//   border: none;
+//   background-color: rgba(0, 0, 0, 0.42);
+// }
 
-[type="checkbox"].tabbed:focus + span:not(.lever):after {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  border: 0;
-  border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
-}
+// [type="checkbox"].tabbed:focus + span:not(.lever):after {
+//   -webkit-transform: scale(1);
+//   transform: scale(1);
+//   border: 0;
+//   border-radius: 50%;
+//   -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+//   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+//   background-color: rgba(0, 0, 0, 0.1);
+// }
 
-[type="checkbox"]:checked + span:not(.lever):before {
-  top: -4px;
-  left: -5px;
-  width: 12px;
-  height: 22px;
-  border-top: 2px solid transparent;
-  border-left: 2px solid transparent;
-  border-right: 2px solid #26a69a;
-  border-bottom: 2px solid #26a69a;
-  -webkit-transform: rotate(40deg);
-  transform: rotate(40deg);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-}
+// [type="checkbox"]:checked + span:not(.lever):before {
+//   top: -4px;
+//   left: -5px;
+//   width: 12px;
+//   height: 22px;
+//   border-top: 2px solid transparent;
+//   border-left: 2px solid transparent;
+//   border-right: 2px solid #26a69a;
+//   border-bottom: 2px solid #26a69a;
+//   -webkit-transform: rotate(40deg);
+//   transform: rotate(40deg);
+//   -webkit-backface-visibility: hidden;
+//   backface-visibility: hidden;
+//   -webkit-transform-origin: 100% 100%;
+//   transform-origin: 100% 100%;
+// }
 
-[type="checkbox"]:checked:disabled + span:before {
-  border-right: 2px solid rgba(0, 0, 0, 0.42);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.42);
-}
+// [type="checkbox"]:checked:disabled + span:before {
+//   border-right: 2px solid rgba(0, 0, 0, 0.42);
+//   border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+// }
 
-[type="checkbox"]:indeterminate + span:not(.lever):before {
-  top: -11px;
-  left: -12px;
-  width: 10px;
-  height: 22px;
-  border-top: none;
-  border-left: none;
-  border-right: 2px solid #26a69a;
-  border-bottom: none;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-}
+// [type="checkbox"]:indeterminate + span:not(.lever):before {
+//   top: -11px;
+//   left: -12px;
+//   width: 10px;
+//   height: 22px;
+//   border-top: none;
+//   border-left: none;
+//   border-right: 2px solid #26a69a;
+//   border-bottom: none;
+//   -webkit-transform: rotate(90deg);
+//   transform: rotate(90deg);
+//   -webkit-backface-visibility: hidden;
+//   backface-visibility: hidden;
+//   -webkit-transform-origin: 100% 100%;
+//   transform-origin: 100% 100%;
+// }
 
-[type="checkbox"]:indeterminate:disabled + span:not(.lever):before {
-  border-right: 2px solid rgba(0, 0, 0, 0.42);
-  background-color: transparent;
-}
+// [type="checkbox"]:indeterminate:disabled + span:not(.lever):before {
+//   border-right: 2px solid rgba(0, 0, 0, 0.42);
+//   background-color: transparent;
+// }
 
-[type="checkbox"].filled-in + span:not(.lever):after {
-  border-radius: 2px;
-}
+// [type="checkbox"].filled-in + span:not(.lever):after {
+//   border-radius: 2px;
+// }
 
-[type="checkbox"].filled-in + span:not(.lever):before,
-[type="checkbox"].filled-in + span:not(.lever):after {
-  content: "";
-  left: 0;
-  position: absolute;
-  -webkit-transition: border 0.25s, background-color 0.25s, width 0.2s 0.1s, height 0.2s 0.1s, top 0.2s 0.1s,
-    left 0.2s 0.1s;
-  transition: border 0.25s, background-color 0.25s, width 0.2s 0.1s, height 0.2s 0.1s, top 0.2s 0.1s, left 0.2s 0.1s;
-  z-index: 1;
-}
+// [type="checkbox"].filled-in + span:not(.lever):before,
+// [type="checkbox"].filled-in + span:not(.lever):after {
+//   content: "";
+//   left: 0;
+//   position: absolute;
+//   -webkit-transition: border 0.25s, background-color 0.25s, width 0.2s 0.1s, height 0.2s 0.1s, top 0.2s 0.1s,
+//     left 0.2s 0.1s;
+//   transition: border 0.25s, background-color 0.25s, width 0.2s 0.1s, height 0.2s 0.1s, top 0.2s 0.1s, left 0.2s 0.1s;
+//   z-index: 1;
+// }
 
 [type="checkbox"].filled-in:not(:checked) + span:not(.lever):before {
   width: 0;

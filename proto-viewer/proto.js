@@ -7,7 +7,7 @@ $(function () {
         $bodybook = $('.book_contents'),
 
         $menu = $('#menu')
-    $menuOpenBtn = $('#menuOpen'),
+        $menuOpenBtn = $('#menuOpen'),
 
         $tabArcodian = $('.tab.arcodian'),
         $tabContents = $('.tabs .contents'),
