@@ -2,3 +2,4 @@
 
 #ignore all map file
 doc/*.map
+node_modules
