@@ -3,8 +3,11 @@ body {
 }
 
 h1 {
-  width: 600px;
+  width: 700px;
   margin: 0 auto;
+  padding: 16px 0;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
 }
 
 .mailTemplate {
