@@ -217,13 +217,17 @@ $(function () {
     })
 
     $('.pop_close').on('click', function () {
-        $(this).closest('[class^=fullModal]').removeClass('open');
-        // console.log($(this).parent());
-
+        $(this).closest('[class*=Modal-list]').removeClass('open');
+        console.log($(this).parent()); 
+    });
+    $('.btn_close').on('click', function(){
+        var test = $(this).parent();
+        console.log(test);
     });
 
     $('.pop_open').on('click', function () {
         var target = $(this).attr('href');
+        console.log(target);
         var targetLayer = $(target).addClass('open');
         $menu.removeClass('show');
     });
