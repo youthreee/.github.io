@@ -2,4 +2,6 @@
 
 #ignore all map file
 doc/*.map
-node_modules
+doc/node_modules
+doc/.vscode
+doc/.gitignore
