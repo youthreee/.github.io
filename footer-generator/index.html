@@ -123,11 +123,11 @@
 
         <article>
             <div class="mailTemplate2" id="mailFooter">
-                <table cellpadding="0" cellspacing="0" border="0" style="margin:0;padding:0;width:600px;height:170px;">
+                <table cellpadding="0" cellspacing="0" border="0" style="margin:0;padding:0;width:600px;height:150px;">
                     <tbody>
                         <tr>
                             <td width="100%" style="
-                                padding: 0 20px;
+                                padding: 10px 20px;
                                 line-height: 1.5;
                                 word-break: break-word;
                                 font-size: 9px;
@@ -145,9 +145,9 @@
                                     <span class="quotes" style="color:#777777;font-size:12px;">제대로 돌아갈까</span>
                                     <span style="color:#777777;font-size:12px;">”</span>
                                 </div>
-                                <div style="text-align: left; overflow:hidden; height: 8px;">
-                                    <span style="font-size: 2px; color: rgb(242, 242, 242);"><br /></span>
-                                </div>
+                                <p style="text-align: left; overflow:hidden; height: 4px; padding:0;margin:0;">
+                                    <span style="font-size: 2px; color: rgb(242, 242, 242);">&nbsp;</span>
+                                </p>
                                 <div style="text-align: left;">
                                     <span class="role" style="color:#333333;font-size:12px;font-weight:bold">Product
                                         Designer</span>
@@ -155,9 +155,9 @@
                                     <span class="team"
                                         style="color:#333333;font-size:12px;font-weight:bold">독서플랫폼팀</span>
                                 </div>
-                                <div style="text-align: left; overflow:hidden; height: 8px;">
-                                    <span style="font-size: 2px; color: rgb(242, 242, 242);"><br /></span>
-                                </div>
+                                <p style="text-align: left; overflow:hidden; height: 4px; padding:0;margin:0;">
+                                    <span style="font-size: 2px; color: rgb(242, 242, 242);">&nbsp;</span>
+                                </p>
                                 <div style="text-align: left;">
                                     <b style="color:#333333;font-size:12px;font-weight:bold">E</b>
                                     <span class="email"
@@ -167,9 +167,9 @@
                                         style="color:#333333;font-size:12px;font-weight:normal">010
                                         1234 1234</span>
                                 </div>
-                                <div style="text-align: left; overflow:hidden; height: 8px;">
-                                    <span style="font-size: 2px; color: rgb(242, 242, 242);"><br /></span>
-                                </div>
+                                <p style="text-align: left; overflow:hidden; height: 4px; padding:0;margin:0;">
+                                    <span style="font-size: 2px; color: rgb(242, 242, 242);">&nbsp;</span>
+                                </p>
                                 <div style="text-align: left;">
                                     <span style="color:#333333;font-size:12px;font-weight:bold">(주)밀리의서재</span><br />
                                     <span style="color:#333333;font-size:12px;font-weight:normal">서울특별시 마포구 상암산로 76 YTN
@@ -189,7 +189,10 @@
             <button class="btn" data-clipboard-target="#mailFooter">
                 복사하기
             </button>
-            <p>
+            <button class="btn_for_apple">
+                네..? 애플 메일앱으로 사용하고 싶으시다구요?
+            </button>
+            <p class="comment">
                 복사하여 메일 서명에 붙여 넣어 사용하세요.<br>
                 개개인이 사용하시는 메일 서명으로 튼튼한 밀리의 서재 브랜딩 기초를 다져나가요💪
             </p>
@@ -203,7 +206,6 @@
         $(function () {
 
             new ClipboardJS('.btn');
-
 
             $("input[type=text]").each(function (idx) {
                 $(this).keyup(function () {
@@ -250,7 +252,22 @@
 
             var mail = $('.mailTemplate2').find('table').html();
             // console.log(mail);
+
+            $('.btn_for_apple').click(function () {
+                var mailFooter = $('#mailFooter').html();
+                copyToClipboard(mailFooter);
+                alert('Copied!');
+            });
         });
+
+        function copyToClipboard(val) {
+            var t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = val;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+        }
     </script>
 </body>
 

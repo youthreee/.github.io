@@ -1,5 +1,5 @@
 body {
-  background: #FDFAF3;
+  background: #fdfaf3;
 }
 
 h1 {
@@ -96,12 +96,12 @@ input:valid ~ label {
 
 .bar:before,
 .bar:after {
-  content: '';
+  content: "";
   height: 2px;
   width: 0;
   bottom: 0;
   position: absolute;
-  background: #FFEB60;
+  background: #ffeb60;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -146,14 +146,14 @@ input:focus ~ .highlight {
   border: none;
   padding: 10px;
   font-size: 16px;
-  background: #FFEB60;
+  background: #ffeb60;
   color: #343434;
   border-radius: 8px;
   cursor: pointer;
-  -webkit-transition: -webkit-box-shadow .3s ease-in-out;
-  transition: -webkit-box-shadow .3s ease-in-out;
-  transition: box-shadow .3s ease-in-out;
-  transition: box-shadow .3s ease-in-out, -webkit-box-shadow .3s ease-in-out;
+  -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
 }
 
 .makeMail:hover {
@@ -169,7 +169,7 @@ article {
 
 @-webkit-keyframes inputlighter {
   from {
-    background: #FFEB60;
+    background: #ffeb60;
   }
   to {
     width: 0;
@@ -179,7 +179,7 @@ article {
 
 @keyframes inputlighter {
   from {
-    background: #FFEB60;
+    background: #ffeb60;
   }
   to {
     width: 0;
@@ -190,25 +190,35 @@ article {
 .mailTemplate2 {
   margin: 30px auto;
   width: 600px;
-  opacity: .4;
-  -webkit-transition: all .7s ease;
-  transition: all .7s ease;
+  opacity: 0.4;
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+button {
+  margin-top: 16px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
 }
 
 .btn {
-  margin-top: 16px;
-  width: 100%;
   height: 48px;
-  font-size: 16px;
   color: #fff;
   background: #444;
-  border: none;
   border-radius: 16px;
 }
 
-.btn + p {
+.btn_for_apple {
+  font-size: 14px;
+  background: none;
+  color: #999;
+  text-decoration: underline;
+}
+
+.comment {
   padding-top: 24px;
-  color: #777;
+  color: #444;
   text-align: center;
   font-size: 14px;
 }

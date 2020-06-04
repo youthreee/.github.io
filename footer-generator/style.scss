@@ -1,7 +1,7 @@
 @charset 'utf-8';
 
 body {
-    background: #FDFAF3;
+    background: #fdfaf3;
 }
 
 h1 {
@@ -63,8 +63,8 @@ label {
     -webkit-transition: 0.2s ease all;
 }
 
-input:focus~label,
-input:valid~label {
+input:focus ~ label,
+input:valid ~ label {
     font-size: 12px;
     color: #666;
     top: -18px;
@@ -82,12 +82,12 @@ input:valid~label {
 
 .bar:before,
 .bar:after {
-    content: '';
+    content: "";
     height: 2px;
     width: 0;
     bottom: 0;
     position: absolute;
-    background: #FFEB60;
+    background: #ffeb60;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -101,8 +101,8 @@ input:valid~label {
     right: 50%;
 }
 
-input:focus~.bar:before,
-input:focus~.bar:after {
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
     width: 50%;
 }
 
@@ -116,7 +116,7 @@ input:focus~.bar:after {
     opacity: 0.5;
 }
 
-input:focus~.highlight {
+input:focus ~ .highlight {
     -webkit-animation: inputlighter 0.3s ease;
     -moz-animation: inputlighter 0.3s ease;
     animation: inputlighter 0.3s ease;
@@ -133,16 +133,15 @@ input:focus~.highlight {
     border: none;
     padding: 10px;
     font-size: 16px;
-    background: #FFEB60;
+    background: #ffeb60;
     color: #343434;
     border-radius: 8px;
     cursor: pointer;
-    transition: box-shadow .3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .makeMail:hover {
     box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.2), 0px 5px 22px rgba(0, 0, 0, 0.12), 0px 12px 17px rgba(0, 0, 0, 0.14);
-
 }
 
 article {
@@ -153,7 +152,7 @@ article {
 
 @-webkit-keyframes inputlighter {
     from {
-        background: #FFEB60;
+        background: #ffeb60;
     }
 
     to {
@@ -164,7 +163,7 @@ article {
 
 @-moz-keyframes inputlighter {
     from {
-        background: #FFEB60;
+        background: #ffeb60;
     }
 
     to {
@@ -175,7 +174,7 @@ article {
 
 @keyframes inputlighter {
     from {
-        background: #FFEB60;
+        background: #ffeb60;
     }
 
     to {
@@ -187,25 +186,36 @@ article {
 .mailTemplate2 {
     margin: 30px auto;
     width: 600px;
-    opacity: .4;
-    transition: all .7s ease;
+    opacity: 0.4;
+    transition: all 0.7s ease;
 }
-.btn {
+
+button {
     margin-top: 16px;
     width: 100%;
-    height: 48px;
     font-size: 16px;
+    border: none;
+}
+.btn {
+    height: 48px;
     color: #fff;
     background: #444;
-    border: none;
     border-radius: 16px;
-    & + p {
-        padding-top: 24px;
-        color: #777;
-        text-align: center;
-        font-size: 14px;
-    }
 }
+.btn_for_apple {
+    font-size: 14px;
+    background: none;
+    color: #999;
+    text-decoration: underline;
+}
+
+.comment {
+    padding-top: 24px;
+    color: #444;
+    text-align: center;
+    font-size: 14px;
+}
+
 .mailTemplate2.toggled {
     opacity: 1;
 }
