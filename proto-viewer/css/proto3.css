@@ -437,6 +437,7 @@ em {
 
 #phone.readingMode header {
   background-color: transparent;
+  display: none;
 }
 
 #phone.readingMode header .title {
@@ -597,7 +598,6 @@ em {
 }
 
 .book_contents {
-  padding: 8px 16px 0;
   -webkit-box-flex: 90%;
       -ms-flex: 90%;
           flex: 90%;
@@ -612,9 +612,7 @@ em {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  overflow: hidden;
 }
 
 .book_contents p {
@@ -1249,6 +1247,7 @@ footer #menuOpen {
 }
 
 .settings ul .font_select {
+  display: none;
   position: relative;
   cursor: pointer;
   border-radius: 16px;
@@ -3499,6 +3498,7 @@ small {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   opacity: 0;
+  width: 1px;
 }
 
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -3515,6 +3515,7 @@ small {
 
 #menu.show {
   left: 20%;
+  width: auto;
   opacity: 1;
 }
 
@@ -3693,6 +3694,7 @@ small {
 }
 
 .halfModal-list {
+  display: none;
   position: fixed;
   padding-top: 48px;
   z-index: 99999;

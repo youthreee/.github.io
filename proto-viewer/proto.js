@@ -2,7 +2,9 @@ $(function () {
     // $('.tabs').tabs();
 
     var
+        
         $phone = $('#phone'),
+        $phoneWidth = $phone.width(),
 
         $bodybook = $('.book_contents'),
 
@@ -26,7 +28,7 @@ $(function () {
     }, 3500);
 
 
-    $menu.addClass('show');
+    // $menu.addClass('show');
     // $('#otherBooks').addClass('open');
 
     // var didScroll;
@@ -72,20 +74,38 @@ $(function () {
         toggleAppbar()
     });
 
+    function defineOriginalValue(){
+        var leftRightValue = $phoneWidth/8;
+        var topBottomValue = $phone.height()/10;
+        console.log(leftRightValue);
+        console.log(topBottomValue);
+        $bodybook.css({
+            marginLeft : leftRightValue,
+            marginRight : leftRightValue,
+            marginTop: topBottomValue,
+            marginBottom : topBottomValue
+        });
+        
+    }
+    defineOriginalValue();
 
     $bodybook.on('click', function () {
-        var isOpenAppbar = $menu.css('right');
+        var isOpenAppbar = $menu.css('opacity');
+        console.log(isOpenAppbar);
         if ($play.hasClass('open')) {
             $(this).parent().addClass('audioMode', 500);
             $play.toggleClass('off');
         } else {
-            if (isOpenAppbar === '0px') {
+            if (isOpenAppbar == '0') {
                 toggleAppbar()
             } else {
+                closeAppbar();
                 $(this).parent().toggleClass('readingMode', 500);
             }
         }
     });
+
+
 
     var displayHeight = $('.display').height();
     var detailHeight = $('.detail').height();
@@ -116,6 +136,8 @@ $(function () {
     };
 
     tabs($tabContents);
+
+    //
 
     //배경선택
     $('#set_bg').children('input').on('click', function () {

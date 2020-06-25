@@ -192,6 +192,7 @@ em {
     }
     header {
       background-color: transparent;
+      display: none;
       .title {
         font-size: 12px;
         opacity: 0;
@@ -290,7 +291,6 @@ em {
 }
 
 .book_contents {
-  padding: 8px 16px 0;
   flex: 90%;
   font-family: "Kopub Batang";
   font-size: 17px;
@@ -298,7 +298,8 @@ em {
   text-align: justify;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  overflow: hidden;
+  // justify-content: center;
   p {
     font-family: inherit;
     margin: 0 !important;
@@ -805,6 +806,7 @@ footer {
       width: calc(74% - 4px) !important;
     }
     .font_select {
+      display: none;
       position: relative;
       cursor: pointer;
       a {
@@ -3017,6 +3019,7 @@ small {
   // top: 100vh;
   // border-radius: 16px;
   opacity: 0;
+  width: 1px;
   @media only screen 
     and (device-width : 375px) 
     and (device-height : 812px) 
@@ -3030,6 +3033,7 @@ small {
     // top: 8vh;
     // bottom: 72px;
     left: 20%;
+    width: auto;
     opacity: 1;
   }
   .searchSection {
@@ -3177,6 +3181,7 @@ small {
 }
 
 .halfModal-list {
+  display: none;
   position: fixed;
   padding-top: 48px;
   z-index: 99999;
