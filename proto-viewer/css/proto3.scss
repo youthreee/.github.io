@@ -179,6 +179,13 @@ em {
     border-radius: 40px;
     // border: 1px solid #eee;
   }
+  @media screen 
+  and (device-width: 414px)
+  and (device-height: 896px) 
+  and (-webkit-device-pixel-ratio : 3) {
+    max-height: unset;
+    min-height: unset;
+  }
   &.scrollable {
     overflow: scroll;
   }
