@@ -1068,13 +1068,19 @@ footer #menuOpen {
   line-height: 20px;
 }
 
-.settings .slider_wrapper strong span {
+.settings .slider_wrapper span {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  z-index: 1;
+  right: 16px;
+  width: 32px;
+  text-align: right;
   font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 20px;
-  /* identical to box height, or 143% */
-  color: #ffc004;
 }
 
 .settings .slider_wrapper svg {

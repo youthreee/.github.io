@@ -657,14 +657,17 @@ footer {
       font-size: 14px;
       font-weight: normal;
       line-height: 20px;
-      span {
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        line-height: 20px;
-        /* identical to box height, or 143% */
-        color: #ffc004;
-      }
+    }
+    span {
+      @include absoluteCentering();
+      z-index: 1;
+      right: 16px;
+      width: 32px;
+      text-align: right;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 20px;
     }
     svg {
       position: absolute;
@@ -3078,6 +3081,9 @@ small {
     }
     .slider_wrapper {
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    }
+    .visual_detail li {
+      // position: fixed;
     }
   }
   .visual_detail {

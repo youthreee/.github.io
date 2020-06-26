@@ -2,14 +2,14 @@ $(function () {
     // $('.tabs').tabs();
 
     var
-        
+
         $phone = $('#phone'),
         $phoneWidth = $phone.width(),
 
         $bodybook = $('.book_contents'),
 
         $menu = $('#menu')
-        $menuOpenBtn = $('#menuOpen'),
+    $menuOpenBtn = $('#menuOpen'),
 
         $tabArcodian = $('.tab.arcodian'),
         $tabContents = $('.tabs .contents'),
@@ -74,21 +74,6 @@ $(function () {
         toggleAppbar()
     });
 
-    function defineOriginalValue(){
-        var leftRightValue = $phoneWidth/8;
-        var topBottomValue = $phone.height()/10;
-        console.log(leftRightValue);
-        console.log(topBottomValue);
-        $bodybook.css({
-            marginLeft : leftRightValue,
-            marginRight : leftRightValue,
-            marginTop: topBottomValue,
-            marginBottom : topBottomValue
-        });
-        
-    }
-    defineOriginalValue();
-
     $bodybook.on('click', function () {
         var isOpenAppbar = $menu.css('opacity');
         console.log(isOpenAppbar);
@@ -104,8 +89,6 @@ $(function () {
             }
         }
     });
-
-
 
     var displayHeight = $('.display').height();
     var detailHeight = $('.detail').height();
@@ -137,8 +120,6 @@ $(function () {
 
     tabs($tabContents);
 
-    //
-
     //배경선택
     $('#set_bg').children('input').on('click', function () {
         $phone.removeClass();
@@ -147,22 +128,21 @@ $(function () {
     });
 
     //밝기 체크
-    $('#deviceBrightness').on('click',function(){
-        if($(this).is(':checked')){
+    $('#deviceBrightness').on('click', function () {
+        if ($(this).is(':checked')) {
             $('.brightness .slider_wrapper').addClass('auto');
             $('.brightness .slider_wrapper strong span').addClass('show');
-        }else{
+        } else {
             $('.brightness .slider_wrapper').removeClass('auto')
             $('.brightness .slider_wrapper strong span').removeClass('show');
         }
     });
 
     //본문 정렬
-    $('#ft_align').on('click',function(){
-        if($(this).is(':checked')){
+    $('#ft_align').on('click', function () {
+        if ($(this).is(':checked')) {
             $bodybook.addClass('left_align');
-
-        }else{
+        } else {
             $bodybook.removeClass('left_align')
         }
     });
@@ -174,11 +154,11 @@ $(function () {
     });
     $('.visual_detail li').on('mouseup touchend', function () {
         var e = $(this).find('input').attr('id')
-        if(e=='ft_align'){
-            setTimeout(function(){
+        if (e == 'ft_align') {
+            setTimeout(function () {
                 $('.visual_detail li').css('opacity', 1);
                 $menu.removeClass('touching');
-            },1000);
+            }, 1000);
         } else {
             $menu.removeClass('touching');
             $(this).siblings().css('opacity', '1');
@@ -222,7 +202,252 @@ $(function () {
         gageBar.css('width', (gageWidth + '%'));
         // console.log(gageBar);
     });
-    
+
+    // 여백 정의하기
+    function defineOriginalValue() {
+        var leftRightValue = $phoneWidth / 8;
+        var topBottomValue = $phone.height() / 10;
+        console.log(leftRightValue);
+        console.log(topBottomValue);
+        $bodybook.css({
+            marginLeft: leftRightValue,
+            marginRight: leftRightValue,
+            marginTop: topBottomValue,
+            marginBottom: topBottomValue
+        });
+
+    }
+    defineOriginalValue();
+
+    var t = $bodybook.css('marginTop').replace('px', '');
+    var b = $bodybook.css('marginBottom').replace('px', '');
+
+    var l = $bodybook.css('marginTop').replace('px', '');
+    var r = $bodybook.css('marginBottom').replace('px', '');
+
+    function stylingTB(t, b, n) {
+        $bodybook.css({
+            marginTop: t * n,
+            marginBottom: b * n
+        });
+    }
+
+    function stylingLR(l, r, n) {
+        $bodybook.css({
+            marginLeft: l * n,
+            marginRight: r * n
+        });
+    }
+
+    $('#topBottom').on('input', function () {
+        var idx = $(this).val();
+        var prompt = $("#tbValue");
+        // console.log(idx);
+        switch (true) {
+            case (idx < 4):
+                prompt.text('-5');
+                stylingTB(t, b, .15);
+                break;
+            case (idx < 8):
+                prompt.text('-4')
+                stylingTB(t, b, .25);
+                break;
+            case (idx < 12):
+                prompt.text('-3')
+                stylingTB(t, b, .45);
+                break;
+            case (idx < 15):
+                prompt.text('-2')
+                stylingTB(t, b, .65);
+                break;
+            case (idx < 18):
+                prompt.text('-1')
+                stylingTB(t, b, .85);
+                break;
+            case (idx < 22):
+                prompt.text('원본')
+                stylingTB(t, b, 1);
+                break;
+            case (idx < 23):
+                prompt.text('1')
+                stylingTB(t, b, 1.1);
+                break;
+            case (idx < 26):
+                prompt.text('2')
+                stylingTB(t, b, 1.2);
+                break;
+            case (idx < 29):
+                prompt.text('3')
+                stylingTB(t, b, 1.3);
+                break;
+            case (idx < 32):
+                prompt.text('4')
+                stylingTB(t, b, 1.4);
+                break;
+            case (idx < 35):
+                prompt.text('5')
+                stylingTB(t, b, 1.5);
+                break;
+            case (idx < 38):
+                prompt.text('6')
+                stylingTB(t, b, 1.6);
+                break;
+            case (idx < 40):
+                prompt.text('7')
+                stylingTB(t, b, 1.7);
+                break;
+            case (idx < 42):
+                prompt.text('8')
+                stylingTB(t, b, 1.8);
+                break;
+            case (idx < 45):
+                prompt.text('9')
+                stylingTB(t, b, 1.9);
+                break;
+            case (idx < 48):
+                prompt.text('10')
+                stylingTB(t, b, 2);
+                break;
+            case (idx < 51):
+                prompt.text('11')
+                stylingTB(t, b, 2.1);
+                break;
+            case (idx < 54):
+                prompt.text('12')
+                stylingTB(t, b, 2.2);
+                break;
+            case (idx < 57):
+                prompt.text('12')
+                stylingTB(t, b, 2.3);
+                break;
+            case (idx < 60):
+                prompt.text('13')
+                stylingTB(t, b, 2.4);
+                break;
+            case (idx < 63):
+                prompt.text('14')
+                stylingTB(t, b, 2.5);
+                break;
+            case (idx < 66):
+                prompt.text('15');
+                stylingTB(t, b, 2.6);
+                break;
+            case (idx < 69):
+                prompt.text('16');
+                stylingTB(t, b, 2.7);
+                break;
+            case (idx < 71):
+                prompt.text('17');
+                stylingTB(t, b, 2.8);
+                break;
+            case (idx < 74):
+                prompt.text('18');
+                stylingTB(t, b, 2.9);
+                break;
+            case (idx < 77):
+                prompt.text('19');
+                stylingTB(t, b, 3);
+                break;
+            case (idx < 80):
+                prompt.text('20');
+                stylingTB(t, b, 3.1);
+                break;
+            case (idx < 83):
+                prompt.text('21');
+                stylingTB(t, b, 3.2);
+                break;
+            case (idx < 86):
+                prompt.text('22');
+                stylingTB(t, b, 3.3);
+                break;
+            case (idx < 95):
+                prompt.text('23');
+                stylingTB(t, b, 3.4);
+                break;
+            case (idx < 98):
+                prompt.text('24');
+                stylingTB(t, b, 3.5);
+                break;
+        };
+    });
+
+    $('#leftRight').on('input', function () {
+        var idx = $(this).val();
+        var prompt = $("#lrValue");
+        // console.log(idx);
+        switch (true) {
+            case (idx < 6):
+                prompt.text('-4');
+                stylingLR(l, r, .2);
+                break;
+            case (idx < 12):
+                prompt.text('-3')
+                stylingLR(l, r, .4);
+                break;
+            case (idx < 18):
+                prompt.text('-2')
+                stylingLR(l, r, .6);
+                break;
+            case (idx < 24):
+                prompt.text('-1')
+                stylingLR(l, r, .8);
+                break;
+            case (idx < 30):
+                prompt.text('원본')
+                stylingLR(l, r, 1);
+                break;
+            case (idx < 30):
+                prompt.text('원본')
+                stylingLR(l, r, 1.05);
+                break;
+            case (idx < 36):
+                prompt.text('1')
+                stylingLR(l, r, 1.1);
+                break;
+            case (idx < 42):
+                prompt.text('2')
+                stylingLR(l, r, 1.15);
+                break;
+            case (idx < 48):
+                prompt.text('3')
+                stylingLR(l, r, 1.2);
+                break;
+            case (idx < 56):
+                prompt.text('4')
+                stylingLR(l, r, 1.25);
+                break;
+            case (idx < 62):
+                prompt.text('5')
+                stylingLR(l, r, 1.3);
+                break;
+            case (idx < 68):
+                prompt.text('5')
+                stylingLR(l, r, 1.35);
+                break;
+            case (idx < 74):
+                prompt.text('6')
+                stylingLR(l, r, 1.4);
+                break;
+            case (idx < 80):
+                prompt.text('7')
+                stylingLR(l, r, 1.45);
+                break;
+            case (idx < 86):
+                prompt.text('8')
+                stylingLR(l, r, 1.5);
+                break;
+            case (idx < 92):
+                prompt.text('9')
+                stylingLR(l, r, 1.55);
+                break;
+            case (idx < 98):
+                prompt.text('10')
+                stylingLR(l, r, 1.6);
+                break;
+        };
+    });
+
+
 
     $('.font_size').on('click', function () {
         $(this).toggleClass('short');
@@ -240,9 +465,9 @@ $(function () {
 
     $('.pop_close').on('click', function () {
         $(this).closest('[class*=Modal-list]').removeClass('open');
-        console.log($(this).parent()); 
+        console.log($(this).parent());
     });
-    $('.btn_close').on('click', function(){
+    $('.btn_close').on('click', function () {
         var test = $(this).parent();
         console.log(test);
     });
