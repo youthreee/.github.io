@@ -90,7 +90,7 @@
 				</div>
 			</header>
 
-			<section class="book_contents">
+			<section class="bodybook">
 				<p>르 코르뷔지에는 나이 드신 부모님 두 분만의 조용한 생활을 사소한 부분에 이르기까지 예측하고 통찰하는 일부터 시작해서 정성스럽게 이 작은 집의 설계에 착수했습니다. “집은 거주하기
 					위한 기계다."라는 말이 신조였던 건축가 답게 공간을 헛되게 차지하는 것은 전부 잘라내어 없애 버렸습니다. 집에 반드시 필요한 소재를 어떻게 조합해야 기능적이고 쾌적한 거주공간이
 					완성될지가 이 집의 과제이고 테마였지요. 결국 르 코르뷔지에는 부모님을 위한 집의 설계를 통해서 <최소한의 집>이라는, 건축가에게 있어 보편적인 테마를 추구하게 된 것입니다.
@@ -182,7 +182,7 @@
 							</svg>
 							이 책의 다른 타입
 						</a>
-					</li>					 -->
+					</li> -->
 					<!-- <li class="divider"></li> -->
 					<li class="tab quotes blank">
 						<a href="javascript:;">
@@ -338,8 +338,9 @@
 									<div class="slider_wrapper">
 										<form action="#">
 											<p class="range-field">
-												<input type="range" min="0" max="100" />
+												<input id="lineHeight" type="range" min="0" max="100" />
 												<strong>줄간격</strong>
+												<span id="lhValue" class="org">원본</span>
 												<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path d="M6 8H12" stroke="#444444" stroke-width="2"
@@ -361,7 +362,7 @@
 											<p class="range-field">
 												<input type="range" id="topBottom" value="30" min="0" max="100" />
 												<strong>상하여백 </strong>
-												<span id="tbValue">원본</span>
+												<span id="tbValue" class="org">원본</span>
 												<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path fill-rule="evenodd" clip-rule="evenodd"
@@ -387,9 +388,9 @@
 									<div class="slider_wrapper">
 										<form action="#">
 											<p class="range-field">
-												<input id="leftRight" type="range" value="" min="0" max="100" />
+												<input id="leftRight" type="range" value="30" min="0" max="100" />
 												<strong>좌우여백</strong>
-												<span id="lrValue">원본</span>
+												<span id="lrValue" class="org">원본</span>
 												<svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
 													xmlns="http://www.w3.org/2000/svg">
 													<path fill-rule="evenodd" clip-rule="evenodd"

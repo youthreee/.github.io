@@ -610,13 +610,11 @@ em {
   text-indent: -9999px;
 }
 
-.book_contents {
+.bodybook {
   -webkit-box-flex: 90%;
       -ms-flex: 90%;
           flex: 90%;
   font-family: "Kopub Batang";
-  font-size: 17px;
-  text-indent: 17px;
   text-align: justify;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -626,17 +624,19 @@ em {
       -ms-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
+  font-size: 1.3em;
+  text-indent: 17px;
+  line-height: 1.6em;
 }
 
-.book_contents p {
+.bodybook p {
   font-family: inherit;
   margin: 0 !important;
   padding: 0 !important;
   letter-spacing: -0.6px;
-  line-height: 31px;
 }
 
-.book_contents.left_align {
+.bodybook.left_align {
   text-align: left;
 }
 
@@ -846,8 +846,8 @@ footer #menuOpen {
   width: 100%;
   height: 100%;
   background: rgba(191, 192, 196, 0.5);
-  -webkit-transition: .3s ease;
-  transition: .3s ease;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .slider_wrapper input[type="range"] {
@@ -1078,9 +1078,12 @@ footer #menuOpen {
   width: 32px;
   text-align: right;
   font-style: normal;
-  font-weight: bold;
   font-size: 14px;
   line-height: 20px;
+}
+
+.settings .slider_wrapper span.org {
+  font-weight: bold;
 }
 
 .settings .slider_wrapper svg {
@@ -1122,7 +1125,7 @@ footer #menuOpen {
 }
 
 .settings ul .brightness strong span.show {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .settings ul .brightness .btn_device {
@@ -1170,7 +1173,7 @@ footer #menuOpen {
 }
 
 .settings ul .font_align:after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
   top: 0;
@@ -3729,8 +3732,8 @@ small {
           box-sizing: border-box;
   -webkit-box-shadow: -4px 0px 50px rgba(0, 0, 0, 0.25);
           box-shadow: -4px 0px 50px rgba(0, 0, 0, 0.25);
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .halfModal-list header {
@@ -3758,7 +3761,7 @@ small {
 }
 
 .halfModal-list#fontSelect header:before {
-  content: '';
+  content: "";
   width: 24px;
   height: 24px;
   position: absolute;

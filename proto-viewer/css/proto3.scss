@@ -12,7 +12,7 @@ $dark-text1: rgba(255, 255, 255, 0.9);
 $dark-slide: rgba(239, 241, 245, 0.3);
 
 $light-line: #ddd;
-$light-text1: #333; 
+$light-text1: #333;
 $light-slide: rgba(191, 192, 196, 0.5);
 
 $bg_white: #fff;
@@ -30,6 +30,33 @@ $bg_black: rgba(0, 0, 0, 1);
   top: 50%;
   transform: translate(0, -50%);
 }
+
+$defaultSize : 16px;
+
+@function fontSize($num : 16) {
+	@if $string != 'rem' { // rem이 아닐 때
+		$string : 'px';
+		// @return #{$num * $defaultSize}#{$string}; // px, pt 등 절대 수치 사용
+		@return #{$num}#{$string}; // px, pt 등 절대 수치 사용
+	}
+	@else{ // rem
+		@return #{$num / $defaultSize}#{$string};
+	}
+}
+
+@mixin font-size($sizeValue: 16) {
+	$sizeValue : fontSize($sizeValue);
+	font-size: $sizeValue;
+	//font-size: ($sizeValue / 10) + rem;
+}
+
+// rem 기준으로 sizeSet()에 숫자 argument를 입력하여 사용
+// 예) sizeSet(1.2)
+
+// 태블릿에서 기본 크기가 다르게 적용되게 분기
+// @media only screen and (min-width:$screen-sm-min){
+//   html{font-size:$defaultSize-tablet}
+// }
 
 .toast {
   position: fixed;
@@ -141,14 +168,11 @@ em {
     top: 0;
     margin: auto;
   }
-  @media screen and (max-width: 411px){
+  @media screen and (max-width: 411px) {
     display: none;
   }
-  @media screen 
-    and (device-width: 414px)
-    and (device-height: 896px) 
-    and (-webkit-device-pixel-ratio : 3) {
-      display: none;
+  @media screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+    display: none;
   }
 }
 
@@ -179,10 +203,7 @@ em {
     border-radius: 40px;
     // border: 1px solid #eee;
   }
-  @media screen 
-  and (device-width: 414px)
-  and (device-height: 896px) 
-  and (-webkit-device-pixel-ratio : 3) {
+  @media screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
     max-height: unset;
     min-height: unset;
   }
@@ -303,22 +324,22 @@ em {
   text-indent: -9999px;
 }
 
-.book_contents {
+.bodybook {
   flex: 90%;
   font-family: "Kopub Batang";
-  font-size: 17px;
-  text-indent: 17px;
   text-align: justify;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   // justify-content: center;
+  font-size: 1.3em;
+  text-indent: 17px;
+  line-height: 1.6em;
   p {
     font-family: inherit;
     margin: 0 !important;
     padding: 0 !important;
     letter-spacing: -0.6px;
-    line-height: 31px;
   }
   &.left_align {
     text-align: left;
@@ -483,7 +504,7 @@ footer {
         width: 100%;
         height: 100%;
         background: $light-slide;
-        transition: .3s ease;
+        transition: 0.3s ease;
       }
     }
   }
@@ -665,9 +686,11 @@ footer {
       width: 32px;
       text-align: right;
       font-style: normal;
-      font-weight: bold;
       font-size: 14px;
       line-height: 20px;
+      &.org {
+        font-weight: bold;
+      }
     }
     svg {
       position: absolute;
@@ -701,7 +724,7 @@ footer {
           opacity: 0;
           font-size: 80%;
           &.show {
-            opacity: .5;
+            opacity: 0.5;
           }
         }
       }
@@ -745,8 +768,8 @@ footer {
       border-radius: 16px;
       overflow: hidden;
       height: 100%;
-      &:after{
-        content: '';
+      &:after {
+        content: "";
         position: absolute;
         z-index: -1;
         top: 0;
@@ -3036,11 +3059,8 @@ small {
   // border-radius: 16px;
   opacity: 0;
   width: 1px;
-  @media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) { 
-      padding-top: 56px;
+  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    padding-top: 56px;
   }
   @media screen and (min-width: 411px) {
     padding-top: 56px;
@@ -3082,9 +3102,9 @@ small {
     .slider_wrapper {
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
     }
-    .visual_detail li {
-      // position: fixed;
-    }
+    // .visual_detail li {
+    //   // position: fixed;
+    // }
   }
   .visual_detail {
     display: flex;
@@ -3214,7 +3234,7 @@ small {
   border-radius: 16px 16px 0 0;
   box-sizing: border-box;
   box-shadow: -4px 0px 50px rgba(0, 0, 0, 0.25);
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   header {
     position: absolute;
     z-index: 2;
@@ -3223,7 +3243,7 @@ small {
     right: 0;
     width: 100%;
     height: 32px;
-    justify-content: space-between;;
+    justify-content: space-between;
     text-align: left;
     padding-left: 44px;
     background: #fff;
@@ -3235,7 +3255,7 @@ small {
   &#fontSelect {
     header {
       &:before {
-        content: '';
+        content: "";
         width: 24px;
         height: 24px;
         @include absoluteCentering();

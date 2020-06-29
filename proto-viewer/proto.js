@@ -6,10 +6,10 @@ $(function () {
         $phone = $('#phone'),
         $phoneWidth = $phone.width(),
 
-        $bodybook = $('.book_contents'),
+        $bodybook = $('.bodybook'),
 
-        $menu = $('#menu')
-    $menuOpenBtn = $('#menuOpen'),
+        $menu = $('#menu'),
+        $menuOpenBtn = $('#menuOpen'),
 
         $tabArcodian = $('.tab.arcodian'),
         $tabContents = $('.tabs .contents'),
@@ -28,7 +28,8 @@ $(function () {
     }, 3500);
 
 
-    // $menu.addClass('show');
+    $menu.addClass('show');
+
     // $('#otherBooks').addClass('open');
 
     // var didScroll;
@@ -148,7 +149,7 @@ $(function () {
     });
 
     //본문 
-    $('.visual_detail li').on('mousedown touchstart', function () {
+    $('.visual_detail li').on('touchstart mousedown', function () {
         $(this).siblings().css('opacity', '0');
         $menu.addClass('touching');
     });
@@ -207,8 +208,8 @@ $(function () {
     function defineOriginalValue() {
         var leftRightValue = $phoneWidth / 8;
         var topBottomValue = $phone.height() / 10;
-        console.log(leftRightValue);
-        console.log(topBottomValue);
+        // console.log(leftRightValue);
+        // console.log(topBottomValue);
         $bodybook.css({
             marginLeft: leftRightValue,
             marginRight: leftRightValue,
@@ -263,14 +264,17 @@ $(function () {
             case (idx < 18):
                 prompt.text('-1')
                 stylingTB(t, b, .85);
+                prompt.removeClass('org');
                 break;
             case (idx < 22):
                 prompt.text('원본')
+                prompt.addClass('org');
                 stylingTB(t, b, 1);
                 break;
             case (idx < 23):
                 prompt.text('1')
                 stylingTB(t, b, 1.1);
+                prompt.removeClass('org');
                 break;
             case (idx < 26):
                 prompt.text('2')
@@ -391,62 +395,85 @@ $(function () {
             case (idx < 24):
                 prompt.text('-1')
                 stylingLR(l, r, .8);
+                prompt.removeClass('org');
                 break;
             case (idx < 30):
-                prompt.text('원본')
+                prompt.text('원본');
+                prompt.addClass('org');
                 stylingLR(l, r, 1);
-                break;
-            case (idx < 30):
-                prompt.text('원본')
-                stylingLR(l, r, 1.05);
                 break;
             case (idx < 36):
                 prompt.text('1')
-                stylingLR(l, r, 1.1);
+                stylingLR(l, r, 1.05);
+                prompt.removeClass('org');
                 break;
             case (idx < 42):
                 prompt.text('2')
-                stylingLR(l, r, 1.15);
+                stylingLR(l, r, 1.1);
                 break;
             case (idx < 48):
                 prompt.text('3')
-                stylingLR(l, r, 1.2);
+                stylingLR(l, r, 1.15);
                 break;
             case (idx < 56):
                 prompt.text('4')
-                stylingLR(l, r, 1.25);
+                stylingLR(l, r, 1.2);
                 break;
             case (idx < 62):
                 prompt.text('5')
-                stylingLR(l, r, 1.3);
+                stylingLR(l, r, 1.25);
                 break;
             case (idx < 68):
-                prompt.text('5')
+                prompt.text('6')
+                stylingLR(l, r, 1.3);
+                break;
+            case (idx < 74):
+                prompt.text('7')
                 stylingLR(l, r, 1.35);
                 break;
             case (idx < 74):
-                prompt.text('6')
+                prompt.text('8')
                 stylingLR(l, r, 1.4);
                 break;
             case (idx < 80):
-                prompt.text('7')
+                prompt.text('9')
                 stylingLR(l, r, 1.45);
                 break;
             case (idx < 86):
-                prompt.text('8')
+                prompt.text('10')
                 stylingLR(l, r, 1.5);
                 break;
             case (idx < 92):
-                prompt.text('9')
+                prompt.text('11')
                 stylingLR(l, r, 1.55);
-                break;
-            case (idx < 98):
-                prompt.text('10')
-                stylingLR(l, r, 1.6);
                 break;
         };
     });
 
+    var lh = $bodybook.children().css('lineHeight');
+    console.log(lh);
+
+    function stylingLH(lh, n) {
+        $bodybook.css({
+            lineHeight: lh * n,
+        });
+    }
+
+    $('#lineHeight').on('input', function () {
+        var idx = $(this).val();
+        var prompt = $("#lhValue");
+        console.log(idx);
+        switch (true) {
+            case (idx < 6):
+                prompt.text('-4');
+                stylingLH(l, .2);
+                break;
+            case (idx < 50):
+                prompt.text('원본');
+                stylingLH(l, 1);
+                break;
+        };
+    });
 
 
     $('.font_size').on('click', function () {
