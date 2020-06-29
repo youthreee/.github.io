@@ -149,7 +149,7 @@ $(function () {
     });
 
     //본문 
-    $('.visual_detail li').on('touchstart mousedown', function () {
+    $('.visual_detail li').on('touchmove mousedown', function () {
         $(this).siblings().css('opacity', '0');
         $menu.addClass('touching');
     });
