@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link
+		href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap"
+		rel="stylesheet">
+	<!-- CSS only -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="./css/style.css?t=<? echo time() ?>">
+	<title>내서재</title>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<div class="book_thumb real now_reading">
+			<img src="https://img.millie.co.kr/200x/service/cover/1482716/95c95679c2594a3aaccdc68e28eb6190.jpg" alt="">
+		</div>
+
+		<div class="profile">
+			<dl class="profile-infos">
+				<h1 class="profile-title"><span class="user_name">한번 말을 시작하면 끝맺음이 없는 사람</span>의 서재</h1>
+				
+				<button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+					<a href="javascript:;" class="btn_menu"></a>
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+					<a class="dropdown-item active" href="#">읽은 책</a>
+					<a class="dropdown-item" href="#">하이라이트</a>
+					<a class="dropdown-item" href="#">좋아요</a>
+					<a class="dropdown-item" href="#">프로필 편집</a>
+					<a class="dropdown-item" href="#">내 서재 공유</a>
+					<div class="submit btn1p2">
+						<button class="btn_grey">닫기</button>
+						<button class="btn_yellow">적용하기</button>
+					</div>
+				</div>
+
+				<div class="infos-photo"><img src="https://www.fakenamegenerator.com/images/sil-female.png" alt="">
+				</div>
+				<p class="infos-millie_day">밀리와 함께 <b>1110</b>일, <b>343</b>밀리</p>
+				<div class="infos-millie_graph">
+					<p style="width: 23%"></p>
+					<span><b>34</b>/365밀리</span>
+					<span class="dday">D-320</span>
+				</div>
+				<ul class="infos-follower">
+					<li>팔로잉 <b>1</b> ∙ </li>
+					<li>팔로워 <b>8</b></li>
+				</ul>
+			</dl>
+			<div class="profile-fav_book">
+				<strong>나의 인생책</strong>
+				<p class="msg">“<span>천천히 간다고 골로 안가나요?</span>”</p>
+				<span class="bk_name">그리스인 조르바</span>
+				<div class="book_thumb real">
+					<img src="https://img.millie.co.kr/200x/service/cover/1482716/95c95679c2594a3aaccdc68e28eb6190.jpg"
+						alt="">
+				</div>
+			</div>
+		</div>
+
+		<div class="contents">
+			<ul class="nav nav-tabs" role="tablist">
+				<li><a href="#home" class="active" aria-controls="home" role="tab" data-toggle="tab">책</a></li>
+				<li><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">책장</a>
+				</li>
+				<li><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">독서노트</a>
+				</li>
+				<li><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">통계</a>
+				</li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="home">
+					<div class="sorting d-flex">
+						<div class="dropdown type1">
+							<button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+								전체 1004권
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+								<strong>필터</strong>
+								<div class="btns">
+									<a class="dropdown-item active" href="#">전체</a>
+									<a class="dropdown-item" href="#">다운로드한 책만</a>
+									<a class="dropdown-item" href="#">전자책</a>
+									<a class="dropdown-item" href="#">오디오북</a>
+									<a class="dropdown-item" href="#">챗북</a>
+								</div>
+								<div class="submit btn1p2">
+									<button class="btn_grey">닫기</button>
+									<button class="btn_yellow">적용하기</button>
+								</div>
+							</div>
+						</div>
+						<div class="dropdown type2">
+							<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+								최근 본 순
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+								<a class="dropdown-item" href="#">Action</a>
+								<a class="dropdown-item" href="#">Another action</a>
+								<a class="dropdown-item" href="#">Something else here</a>
+							</div>
+						</div>
+						<a href="btn">편집</a>
+					</div>
+					<div class=bk_list>
+						<div class="bk_wrap now">
+							<div class="book_thumb">
+								<img src="https://gpbqopmikmnr903351.cdn.ntruss.com/14000k_15000k/49a6c44481c53705fa31e71150f44fc4.jpg?type=w&w=200&extopt=3&quality=100"
+									alt="">
+							</div>
+							<div class="meta">
+								<strong>쇼코의 미소</strong>
+								<p>최은영</p>
+								<p class="percentage">17%</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="profile">Lorem Ipsum is simply dummy text of the printing and
+					typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+					when
+					an unknown printer took a galley of type and scrambled it to make a type specimen book.</div>
+				<div role="tabpanel" class="tab-pane" id="messages">Lorem Ipsum is simply dummy text of the printing and
+					typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+					when
+					an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+					survived
+					not only five centuries, but also the leap into electronic typesetting, remaining essentially
+					unchanged.
+					It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+					and
+					more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+					Ipsum.
+				</div>
+				<div role="tabpanel" class="tab-pane" id="settings">Lorem Ipsum is simply dummy text of the printing and
+					typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+					when
+					an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+					survived
+					not only five centuries, but also the leap into electronic typesetting, remaining essentially
+					unchanged.
+					It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage..
+				</div>
+			</div>
+		</div>
+
+		<div id="dim"></div>
+	</div>
+
+
+	<div class="toast" id="bright_device-off">뷰어 내에서만<br>밝기 정도를 조절합니다.</div>
+	<div class="toast" id="bright_device-on">기기의 밝기 설정과 연동됩니다.</div>
+
+	<script src="proto.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
