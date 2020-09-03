@@ -13,30 +13,31 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap"
         rel="stylesheet">
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css?t=<? echo time() ?>">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./css/style.css?t=<? echo time() ?>">
+
     <title>내서재</title>
 </head>
 
 <body>
     <div class="wrapper">
 
-        <div class="now_reading">
+        <div class="now_reading" id="draggable">
             <div class="book_thumb real">
-                <img src="https://img.millie.co.kr/200x/service/cover/1482716/95c95679c2594a3aaccdc68e28eb6190.jpg" alt="">
+                <img src="https://img.millie.co.kr/200x/service/cover/1482716/95c95679c2594a3aaccdc68e28eb6190.jpg"
+                    alt="">
             </div>
             <div>
                 <p>부자의 언어</p>
@@ -108,7 +109,7 @@
                                     <a class="dropdown-item" href="#">챗북</a>
                                 </div>
                                 <div class="submit btn1p2">
-                                    <button class="btn_grey">닫기</button>
+                                    <button class="btn_grey btn_close">닫기</button>
                                     <button class="btn_yellow">적용하기</button>
                                 </div>
                             </div>
@@ -119,9 +120,19 @@
                                 최근 본 순
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <strong>정렬</strong>
+                                <div class="btns">
+                                    <a class="dropdown-item active" href="#">최근 본 순</a>
+                                    <a class="dropdown-item" href="#">최근 담은 순</a>
+                                    <a class="dropdown-item" href="#">책 제목 순</a>
+                                    <a class="dropdown-item" href="#">저자명 순</a>
+                                    <a class="dropdown-item" href="#">출판사 순</a>
+                                    <a class="dropdown-item" href="#">최근 발행 순</a>
+                                </div>
+                                <div class="submit btn1p2">
+                                    <button class="btn_grey btn_close">닫기</button>
+                                    <button class="btn_yellow">적용하기</button>
+                                </div>
                             </div>
                         </div>
                         <a href="btn">편집</a>
@@ -206,7 +217,8 @@
                     </div>
 
                     <div class="curate_wrap">
-                        <a class="title ar_right_16">남이 만든 죽기 전에 꼭 읽어야 책장인데 책장 제목을 길게쓰고 싶으면 이렇게 두 줄 이상 제한줘야... <span>5</span></a>
+                        <a class="title ar_right_16">남이 만든 죽기 전에 꼭 읽어야 책장인데 책장 제목을 길게쓰고 싶으면 이렇게 두 줄 이상 제한줘야...
+                            <span>5</span></a>
                         <p class="root_shelf">by 빨강머리앤 서재</p>
                         <div class="curate_books max5">
                             <div class="bk_wrap">
@@ -274,7 +286,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="shelfMenu" tabindex="-1" aria-labelledby="shelfMenuLabel" aria-hidden="true">
+    <div class="modal" id="shelfMenu" tabindex="-1" aria-labelledby="shelfMenuLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -284,10 +296,9 @@
                     </button> -->
                 </div>
                 <div class="modal-body list">
-                    <a class="btn" href="">읽은 책</a>
-                    <a class="btn" href="">하이라이트</a>
-                    <a class="btn" href="">좋아요</a>
-                    <a class="btn" href="">프로필 편집</a>
+                    <a class="btn ar_right_24" href="">프로필 편집</a>
+                    <a class="btn ar_right_24" href="">하이라이트<span>127</span></a>
+                    <a class="btn ar_right_24" href="">좋아요<span>78</span></a>
                     <a class="btn" href="">내 서재 공유</a>
                 </div>
                 <!-- <div class="modal-footer">
@@ -302,7 +313,7 @@
     <div class="toast" id="bright_device-on">기기의 밝기 설정과 연동됩니다.</div>
 
     <script src="proto.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

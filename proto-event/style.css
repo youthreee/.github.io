@@ -1,0 +1,81 @@
+html,
+body {
+  background: #161427;
+  color: #fff;
+}
+
+.top-1 {
+  padding: 30% 0;
+  text-align: center;
+  background: url(./asset/top_bg.png) no-repeat 50% 0;
+  background-size: 100%;
+}
+
+.top-1 .book {
+  position: relative;
+  margin: 0 auto;
+  width: 40%;
+}
+
+.top-1 .book > img {
+  width: 100%;
+}
+
+.top-1 .book .msg {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 15%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 59%;
+}
+
+.top-1 .book .msg .symbol {
+  position: absolute;
+  right: 3%;
+  bottom: 0;
+  width: 2.8%;
+  height: 0;
+  padding-top: 100%;
+  background: url(./asset/symbol.svg) no-repeat 50% 50%;
+  background-size: 100%;
+}
+
+.top-1 .book .msg .symbol.line {
+  background: url(./asset/logo-line.svg) no-repeat 50% 50%;
+  background-size: 98%;
+}
+
+.top-1 .book .msg .texts {
+  width: 100%;
+}
+
+.top-2 {
+  text-align: center;
+  height: 200vh;
+  padding: 20% 0;
+}
+
+.top-2 .line-logo {
+  max-width: 679.89px;
+  margin: 0 auto;
+}
+
+.top-2 .line-logo img {
+  width: 100%;
+}
+
+.top-2 .line {
+  margin: -5.5% auto 0;
+  width: 25%;
+}
+
+.top-2 .line svg {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
