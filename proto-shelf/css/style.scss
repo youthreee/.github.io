@@ -153,7 +153,7 @@ body {
     @include fontSize(12px);
     color: $g3;
     &:before {
-        content: '';
+        content: "";
         display: inline-block;
         width: 24px;
         height: 24px;
@@ -276,28 +276,22 @@ body {
     // right: 10px;
     right: -108px;
     display: flex;
-    transition: all .8s ease;
+    transition: all 0.8s ease;
     padding: 10px;
     border-radius: 8px;
     .book_thumb {
         position: relative;
         width: 52px;
         height: 78px;
-        box-shadow: 
-        0px 0px 4px rgba(0, 0, 0, 0.4), 
-        0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1),
-        0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1),
-        ;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4), 0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1),
+            0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1);
         margin-right: 8px;
     }
     &:hover {
         right: 16px;
         background: #fff;
-        box-shadow: 
-        0px 0px 4px rgba(0, 0, 0, 0.4), 
-        0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1),
-        0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1),
-        ;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4), 0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1),
+            0.75px 0.75px 2.25px rgba(0, 0, 0, 0.1);
     }
 }
 
@@ -425,7 +419,7 @@ body {
     position: relative;
     padding-right: 32px !important;
     &:after {
-        content: '';
+        content: "";
         position: absolute;
         top: 6px;
         right: 0;
@@ -433,6 +427,28 @@ body {
         width: 16px;
         height: 16px;
         background-image: url("data:image/svg+xml,%3Csvg width='17' height='16' viewBox='0 0 17 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5 11L10.5 8L7.5 5' stroke='%23242424' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+    }
+}
+
+.ar_right_24 {
+    position: relative;
+    padding-right: 32px !important;
+    span {
+        position: absolute;
+        top: 6px;
+        right: 32px;
+        @include fontSize(16px);
+        font-weight: bold;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 6px;
+        right: 0;
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 6L15 12L9 18' stroke='%23555555' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
     }
 }
 
@@ -455,7 +471,7 @@ body {
     }
     .root_shelf {
         color: $light-text3;
-        @include fontSize(10px)
+        @include fontSize(10px);
     }
     .footer {
         position: relative;
@@ -464,7 +480,7 @@ body {
         text-align: right;
         border-top: 8px solid #fff;
         &:before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -487,7 +503,9 @@ body {
 
 .curate_books {
     $value: 25%;
-    @media (max-width: 490px) {$value: 29%;}
+    @media (max-width: 490px) {
+        $value: 29%;
+    }
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -495,7 +513,7 @@ body {
     margin: 0 0 0 6%;
     padding: 16px 0 0;
     .bk_wrap {
-        width:  $value;
+        width: $value;
         margin-left: -($value - 19);
         .book_thumb {
             box-shadow: -2px 0px 9px rgba(0, 0, 0, 0.16);
@@ -505,12 +523,22 @@ body {
 
 .bk_list {
     .bk_wrap {
-        width: calc(100%/8);
-        @media (max-width: 1024px) {width: calc(100%/7);}
-        @media (max-width: 900px) {width: calc(100%/6);}
-        @media (max-width: 768px) {width: calc(100%/5);}
-        @media (max-width: 580px) {width: calc(100%/4);}
-        @media (max-width: 490px) {width: calc(100%/3);}
+        width: calc(100% / 8);
+        @media (max-width: 1024px) {
+            width: calc(100% / 7);
+        }
+        @media (max-width: 900px) {
+            width: calc(100% / 6);
+        }
+        @media (max-width: 768px) {
+            width: calc(100% / 5);
+        }
+        @media (max-width: 580px) {
+            width: calc(100% / 4);
+        }
+        @media (max-width: 490px) {
+            width: calc(100% / 3);
+        }
     }
 }
 .bk_wrap {
@@ -532,8 +560,8 @@ body {
     position: fixed !important;
     z-index: 3;
     top: unset !important;
-    left: 0;
-    right: 0;
+    left: 0 !important;
+    right: 0 !important;
     bottom: 0 !important;
     width: 100%;
     transform: none !important;
@@ -541,6 +569,10 @@ body {
     padding: 32px 16px 0;
     @include transitionT1($t: 0.5s);
     border-radius: 40px 40px 0px 0px;
+    @media (min-width: 700px) {
+        max-width: 50%;
+        margin: auto;
+    }
     &.show {
         opacity: 1;
     }
@@ -575,9 +607,16 @@ body {
     .submit {
         display: flex;
         flex-wrap: wrap;
+        margin: 0 -16px;
         button {
             padding: 8px;
             height: 56px;
+        }
+        .btn_grey {
+            background: $lg1;
+        }
+        .btn_yellow {
+            background: $millie-yellow;
         }
     }
     .btn1p2 {
@@ -603,22 +642,50 @@ body {
         display: block;
     }
 }
-
+.modal {
+    @media (min-width: 700px) {
+        max-width: 50%;
+    }
+    &.show {
+        .modal-dialog {
+            transform: translateY(0);
+            @media (min-width: 1024px) {
+                transform: translateY(-50%);
+                opacity: 1;
+            }
+        }
+    }
+}
 .modal-dialog {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
     margin: 0 auto;
+    transform: translateY(100px);
+    transition: 0.3s all ease;
+    @media (min-width: 1024px) {
+        transform: unset;
+        top: 60%;
+        opacity: 0;
+    }
 }
 .modal-body.list {
     a {
+        height: 48px;
+        padding: 12px 0;
+        box-sizing: border-box;
         text-align: left;
     }
 }
 
 .modal-content {
+    padding-top: 16px;
     border-radius: 40px 40px 0 0;
+    @media (min-width: 1024px) {
+        padding-top: 0px;
+        border-radius: 6px;
+    }
 }
 .modal-header {
     display: none;
