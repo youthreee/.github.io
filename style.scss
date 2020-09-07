@@ -1,0 +1,139 @@
+@charset "UTF-8";
+@import "../common/reset.scss";
+
+$dark_blue: #161427;
+
+html,
+body {
+    font-family: 'Noto Sans KR', Sans-serif;
+    letter-spacing: -6%;
+    background: $dark_blue;
+    color: #fff;
+}
+.top-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20% 0 10%;
+    box-sizing: border-box;
+    text-align: center;
+    background: url(./asset/top_bg.png) no-repeat 50% 0;
+    background-size: 100%;
+    .book {
+        position: relative;
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media (max-width: 768px) {
+            width: 80%;
+        }
+        > img {
+            width: 100%;
+        }
+        .msg {
+            position: absolute;
+            display: block;
+            width: 65%;
+            > img {
+                width: 100%;
+            }
+            .symbol {
+                position: absolute;
+                right: 3.5%;
+                bottom: 30%;
+                width: 2.5%;
+                transition: transform 1s;
+                transform-style: preserve-3d;
+                &.is-flipped {
+                    transform: rotateY(180deg);
+                    width: 22%;
+                    right: -1.5%;
+                    bottom: 87%;
+                    @media (max-width: 768px) {
+                        width: 14%;
+                        right: 16.5%;
+                        bottom: 73%;
+                    }
+                }
+                .face {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    width: 100%;
+                    backface-visibility: hidden;
+                }
+                .back {
+                    transform: rotateY(180deg);
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .texts {
+                width: 100%;
+            }
+        }
+    }
+}
+.top-2 {
+    text-align: center;
+    padding: 0 0 15%;
+    background: url(./asset/star_bg.jpg) no-repeat 50% 100%;
+    background-size: 100%;
+    .line {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        svg {
+            margin-top: -0.5%;
+            width: 265px;
+        }
+    }
+    .title {
+        position: relative;
+        display: inline-block;
+        margin-top: -15%;
+        font-size: 68px;
+        font-weight: 900;
+        line-height: 68px;
+        text-shadow: 0px -7px 12px rgba(0, 0, 0, 0.75), 0px 36px 20px rgba(0, 0, 0, 0.25);
+        span {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 15px;
+            font-weight: 300;
+            opacity: 0.6;
+            height: 24px;
+            line-height: 24px;
+        }
+        b {
+            color: #ffeb60;
+            text-shadow: 0px -7px 12px rgba(0, 0, 0, 0.75), 0px 36px 20px rgba(0, 0, 0, 0.25);
+        }
+        .astro {
+            position: absolute;
+            top: 90%;
+            right: 73%;
+            width: 80%;
+            animation: float 6s ease-in-out infinite;
+            img {
+                filter: drop-shadow(0px -7px 12px rgba(0, 0, 0, 0.85)), drop-shadow(0px 36px 20px rgba(0, 0, 0, 0.25));
+            }
+        }
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-10px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
