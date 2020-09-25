@@ -81,8 +81,8 @@
 
         <div class="contents">
             <ul class="nav nav-tabs" role="tablist">
-                <li><a href="#home" class="active" aria-controls="home" role="tab" data-toggle="tab">책</a></li>
-                <li><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">책장</a>
+                <li><a href="#home" aria-controls="home" role="tab" data-toggle="tab">책</a></li>
+                <li><a href="#profile" class="active" aria-controls="profile" role="tab" data-toggle="tab">책장</a>
                 </li>
                 <li><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">독서노트</a>
                 </li>
@@ -92,7 +92,7 @@
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">
+                <div role="tabpanel" class="tab-pane" id="home">
                     <div class="sorting d-flex">
                         <div class="dropdown type1">
                             <button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset"
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="profile">
+                <div role="tabpanel" class="tab-pane active" id="profile">
                     <div class="sorting d-flex">
                         <div class="dropdown type1">
                             <button type="button" class="btn dropdown-toggle" id="dropdownMenuOffset"
@@ -176,86 +176,88 @@
                         <a href="btn">편집</a>
                     </div>
                     <div class="curate_wrap">
-                        <a class="title ar_right_16">나의 인생책 <span>5</span></a>
-                        <div class="curate_books max5">
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/6267524/a8fcd446bf2a45aca8e620b9b13473ef.jpg"
-                                        alt="싯다르타">
+                        <div class="curate">
+                            <a class="title ar_right_16">나의 인생책 <span>5</span></a>
+                            <div class="curate_books max5">
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/6267524/a8fcd446bf2a45aca8e620b9b13473ef.jpg"
+                                            alt="싯다르타">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/14800872/cef2c88b106b4c58a6602b4560bbc6ac.jpg"
+                                            alt="프레임">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/4230074/813caef1a50b4129ac8264af268fef87.jpg"
+                                            alt="폴리나">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/23421167/cae22d4a11a5421692fd09b3fd04d0f9.jpg"
+                                            alt="Ize 아이즈 Aril 2019">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/15906202/fc61a8d2ed2b481cb285107cf036cc19.jpg"
+                                            alt="칼릴 지브란">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/14800872/cef2c88b106b4c58a6602b4560bbc6ac.jpg"
-                                        alt="프레임">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/4230074/813caef1a50b4129ac8264af268fef87.jpg"
-                                        alt="폴리나">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/23421167/cae22d4a11a5421692fd09b3fd04d0f9.jpg"
-                                        alt="Ize 아이즈 Aril 2019">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/15906202/fc61a8d2ed2b481cb285107cf036cc19.jpg"
-                                        alt="칼릴 지브란">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <a class="btn btn_share icon left"></a>
-                            <a class="btn btn_add"></a>
-                            <a class="btn btn_more"></a>
-                        </div>
-                    </div>
-
-                    <div class="curate_wrap">
-                        <a class="title ar_right_16">남이 만든 죽기 전에 꼭 읽어야 책장인데 책장 제목을 길게쓰고 싶으면 이렇게 두 줄 이상 제한줘야...
-                            <span>5</span></a>
-                        <p class="root_shelf">by 빨강머리앤 서재</p>
-                        <div class="curate_books max5">
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/6267524/a8fcd446bf2a45aca8e620b9b13473ef.jpg"
-                                        alt="싯다르타">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/14800872/cef2c88b106b4c58a6602b4560bbc6ac.jpg"
-                                        alt="프레임">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/4230074/813caef1a50b4129ac8264af268fef87.jpg"
-                                        alt="폴리나">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/23421167/cae22d4a11a5421692fd09b3fd04d0f9.jpg"
-                                        alt="Ize 아이즈 Aril 2019">
-                                </div>
-                            </div>
-                            <div class="bk_wrap">
-                                <div class="book_thumb">
-                                    <img src="https://img.millie.co.kr/200x/service/cover/15906202/fc61a8d2ed2b481cb285107cf036cc19.jpg"
-                                        alt="칼릴 지브란">
-                                </div>
+                            <div class="footer">
+                                <a class="btn btn_share icon left"></a>
+                                <a class="btn btn_add"></a>
+                                <a class="btn btn_more"></a>
                             </div>
                         </div>
-                        <div class="footer">
-                            <a class="btn btn_share icon left"></a>
-                            <a class="btn btn_add"></a>
-                            <a class="btn btn_more"></a>
+    
+                        <div class="curate">
+                            <a class="title ar_right_16">남이 만든 죽기 전에 꼭 읽어야 책장인데 책장 제목을 길게쓰고 싶으면 이렇게 두 줄 이상 제한줘야...
+                                <span>5</span></a>
+                            <p class="root_shelf">by 빨강머리앤 서재</p>
+                            <div class="curate_books max5">
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/6267524/a8fcd446bf2a45aca8e620b9b13473ef.jpg"
+                                            alt="싯다르타">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/14800872/cef2c88b106b4c58a6602b4560bbc6ac.jpg"
+                                            alt="프레임">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/4230074/813caef1a50b4129ac8264af268fef87.jpg"
+                                            alt="폴리나">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/23421167/cae22d4a11a5421692fd09b3fd04d0f9.jpg"
+                                            alt="Ize 아이즈 Aril 2019">
+                                    </div>
+                                </div>
+                                <div class="bk_wrap">
+                                    <div class="book_thumb">
+                                        <img src="https://img.millie.co.kr/200x/service/cover/15906202/fc61a8d2ed2b481cb285107cf036cc19.jpg"
+                                            alt="칼릴 지브란">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <a class="btn btn_share icon left"></a>
+                                <a class="btn btn_add"></a>
+                                <a class="btn btn_more"></a>
+                            </div>
                         </div>
                     </div>
                 </div>

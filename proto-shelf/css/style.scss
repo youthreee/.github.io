@@ -453,7 +453,26 @@ body {
 }
 
 .curate_wrap {
+    @media (min-width: 700px) {
+        display: flex;
+    }
+}
+
+.curate {
     padding: 16px 0;
+    @media (min-width: 540px) {
+        margin: 8px;
+        border: 1px solid #F6F4EE;
+        border-radius: 16px;
+        > * {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        .curate_books {
+            margin-left: 8%;
+        }
+    }
+
     .title {
         position: relative;
         display: block;
@@ -475,10 +494,12 @@ body {
     }
     .footer {
         position: relative;
+        z-index: 1;
         margin-top: -16px;
         padding-top: 16px;
         text-align: right;
         border-top: 8px solid #fff;
+        filter: drop-shadow(0px -4px 12px rgba(0, 0, 0, 0.05));
         &:before {
             content: "";
             position: absolute;
@@ -514,7 +535,7 @@ body {
     padding: 16px 0 0;
     .bk_wrap {
         width: $value;
-        margin-left: -($value - 19);
+        margin-left: -($value - 40px);
         .book_thumb {
             box-shadow: -2px 0px 9px rgba(0, 0, 0, 0.16);
         }
