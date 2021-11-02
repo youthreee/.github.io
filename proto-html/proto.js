@@ -23,6 +23,17 @@ function book(img, n, a, p) {
 }
 
 $(function () {
+    var input = $('[class^=input-search-]');
+
+    input.on('click',function(){
+        var $this = $(this);
+        $this.addClass('focus')
+        if($this.hasClass('input-search-main')){
+            $this.toggleClass('spread');
+        }
+    })
+
+
     var bk_list = $('.bk_list');
     var bk_infos = {
         books: [

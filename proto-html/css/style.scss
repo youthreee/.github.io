@@ -1,34 +1,55 @@
 @charset 'utf-8';
 @import "../../common/reset.scss";
 
-$millie-yellow: #ffeb60;
-
-$dark-text1: rgba(255, 255, 255, 0.9);
-$dark-slide: rgba(239, 241, 245, 0.3);
-
-$light-line: #ddd;
-
-$light-text1: #242424;
-$light-text2: #555;
-$light-text3: #a5a5a5;
-
-$light-slide: rgba(191, 192, 196, 0.5);
-
-$lg1: #dfdfdf;
-$lg2: #c1c1c1;
-$g1: #a5a5a5;
-$g2: #8b8b8b;
-$g3: #6f6f6f;
-$g4: #555555;
-$dg1: #3d3d3d;
-$dg2: #242424;
-
-$bg_white: #fff;
-$bg_yellow: #faf7d7;
-$bg_green: #e1edc7;
-$bg_dkgreen: #073d30;
-$bg_gray: #595959;
-$bg_black: rgba(0, 0, 0, 1);
+body, body[data-theme=dark], body[data-theme=light] {
+    --chatbook: #eb683f;
+    --GTrans-01: rgba(176,179,188,0.1);
+    --GTrans-02: rgba(176,179,188,0.3);
+    --GTrans-03: rgba(176,179,188,0.5);
+    --GTrans-04: rgba(176,179,188,0.7);
+}
+body, body[data-theme=light] {
+    --ui-background: #fff;
+    --ui-01: #fafaf6;
+    --ui-02: #f7f7f7;
+    --ui-03: #f5f4f3;
+    --ui-04: #f6f4ee;
+    --ui-05: #ececec;
+    --ui-06: #dfdfdf;
+    --ui-07: #a7a39a;
+    --ui-08: #555;
+    --ui-09: #333;
+    --ui-10: #242424;
+    --ui-up: #fff;
+    --ui-up-01: #fff;
+    --ui-up-02: #fff;
+    --ui-up-03: #fff;
+    --ui-up-04: #fff;
+    --primary: #ffeb60;
+    --primary-press: #ffe04b;
+    --secondary: #333;
+    --secondary-press: #242424;
+    --tertiary: #fff;
+    --tertiary-press: #f7f7f7;
+    --danger: #df1d1d;
+    --danger-press: #bc1a1a;
+    --cancel: #c1c1c1;
+    --cancel-press: #a5a5a5;
+    --success: #0073cb;
+    --error: #f05c2e;
+    --text-strong: #000;
+    --text-01: #242424;
+    --text-02: #555;
+    --text-03: #6f6f6f;
+    --text-04: #8b8b8b;
+    --field-readonly: #ececec;
+    --placeholder: #c1c1c1;
+    --audio: #a451f7;
+    --myaudio: #533670;
+    --focus: #469fe3;
+    --sdw-card: 0px 8px 20px rgba(0, 0, 0, 0.1), 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+ 
 
 @mixin transitionT1($t: 0.3s) {
     transition: all $t ease-in-out;
@@ -37,10 +58,6 @@ $bg_black: rgba(0, 0, 0, 1);
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-}
-
-html {
-    font-size: 18px;
 }
 
 @function calculateRem($size) {
@@ -52,6 +69,72 @@ html {
     font-size: $size; //Fallback in px
     font-size: calculateRem($size);
 }
+
+html {
+    font-size: 24px;
+}
+
+body {
+    background: var(--ui-01);
+}
+
+[class^=page-] {
+    min-height: 100vh;
+}
+
+[class^=input-search-] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+        width: 100%;
+        padding: 16px 0;
+        padding-left: 24px + 12px + 8px;
+        font-weight: bold;
+        font-size: 20px;
+        box-shadow: var(--sdw-card);
+        &:focus {
+            border: 0;
+        }
+    }
+    &:before {
+        content:'';
+        display: block;
+        position: absolute;
+        left: 12px;
+        width: 24px;
+        height: 24px;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='6' stroke='%23555555' stroke-width='2'/%3E%3Cpath d='M16 16L19 19' stroke='%23555555' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        transition: all .3s ease;
+        
+    }
+    &, * {
+        transition: all .3s ease;
+    }
+}
+.input-search-main {
+    padding: 24px;
+    background: linear-gradient(180deg, #FAFAF6 0%, rgba(250, 250, 246, 0) 100%);
+    input {
+        border: 2px solid var(--ui-08);
+        border-radius: 12px;
+    }
+    &:before {
+        left: 12+24px;
+    }
+    &.spread {
+        padding: 24px 0;
+        input {
+            border-width: 0 0 2px 0;
+            border-radius: 0px;
+        }
+        &:before {
+            left: 12px;
+        }
+    }
+}
+
 
 p {
     margin: 0;
@@ -89,12 +172,6 @@ $profile-width-pc: 76px;
 $shelf-title-mobile: 18px;
 $shelf-title-pc: 24px;
 
-body {
-    font-family: "Lato", "Noto Sans KR", sans-serif;
-    letter-spacing: -0.6px;
-    background: #fff;
-}
-
 .profile {
     position: relative;
     background: url(../assets/header-img.jpg) no-repeat 50% 50%;
@@ -117,7 +194,7 @@ body {
         transform: matrix(1, 0, 0, -1, 0, 0);
     }
     [class$="title"] {
-        color: $light-text1;
+        color: var(--text-01);
         @include fontSize(18px);
         .user_name {
             font-weight: 700;
@@ -136,10 +213,10 @@ body {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     [class*="grey"] {
-        background: $lg1;
+        background: var(--secondary);
     }
     [class*="yelllow"] {
-        background: $millie-yellow;
+        background: var(--primary);
     }
 }
 
@@ -151,7 +228,7 @@ body {
 .btn_share {
     height: 24px;
     @include fontSize(12px);
-    color: $g3;
+    color: #ccc;
     &:before {
         content: "";
         display: inline-block;
@@ -206,11 +283,11 @@ body {
     }
     [class$="follower"] {
         display: flex;
-        color: $light-text2;
+        color: var(--text-02);
         margin-top: 16px;
     }
     [calss$="millie_day"] {
-        color: $light-text3;
+        color: var(--text-03);
     }
     [class$="millie_graph"] {
         position: relative;
@@ -236,7 +313,7 @@ body {
             left: 0;
             bottom: 0;
             height: 100%;
-            background: $millie-yellow;
+            background: var(--primary);
         }
     }
 }
@@ -250,14 +327,14 @@ body {
     strong {
         @include fontSize(10px);
         font-weight: normal;
-        color: $light-text3;
+        color: var(--text-03);
     }
     .msg {
         font-family: "Noto Sans KR", Sans-serif;
-        color: $light-text3;
+        color: var(--text-03);
         @include fontSize(14px);
         span {
-            color: $light-text1;
+            color: var(--text-01);
         }
     }
     .book_thumb {
@@ -344,7 +421,7 @@ body {
                 padding: 0;
             }
             background: none;
-            color: $light-text1;
+            color: var(--text-01);
         }
         &.type2 {
             padding: 0 8px;
@@ -354,7 +431,7 @@ body {
                 padding: 0;
             }
             background: none;
-            color: $light-text1;
+            color: var(--text-01);
         }
     }
     .btn {
@@ -383,8 +460,8 @@ body {
 .nav-tabs > li > a.active:focus,
 .nav-tabs > li > a.active:hover {
     font-weight: bold;
-    color: $light-text1;
-    box-shadow: 0 2px $light-text1;
+    color: var(--text-01);
+    box-shadow: 0 2px var(--text-01);
 }
 .nav-tabs > li {
     // min-width: 71px;
@@ -489,7 +566,7 @@ body {
         }
     }
     .root_shelf {
-        color: $light-text3;
+        color: var(--text-03);
         @include fontSize(10px);
     }
     .footer {
@@ -522,26 +599,6 @@ body {
     }
 }
 
-.curate_books {
-    $value: 25%;
-    @media (max-width: 490px) {
-        $value: 29%;
-    }
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: center;
-    margin: 0 0 0 6%;
-    padding: 16px 0 0;
-    .bk_wrap {
-        width: $value;
-        margin-left: -($value - 40px);
-        .book_thumb {
-            box-shadow: -2px 0px 9px rgba(0, 0, 0, 0.16);
-        }
-    }
-}
-
 .bk_list {
     .bk_wrap {
         width: calc(100% / 8);
@@ -566,7 +623,7 @@ body {
     padding: 8px;
     &.now {
         background: rgba(255, 235, 96, 0.2);
-        border: 2px solid $millie-yellow;
+        border: 2px solid var(--primary);
         border-radius: 6px;
     }
     .book_thumb {
@@ -614,14 +671,14 @@ body {
         box-sizing: border-box;
         width: calc(50% - 8px);
         height: 48px;
-        color: $g2;
-        border: 1px solid $lg2;
+        color: #aaa;
+        border: 1px solid #eee;
         box-sizing: border-box;
         border-radius: 8px;
         text-align: center;
         &.active {
-            border: 2px solid $millie-yellow;
-            color: $dg2;
+            border: 2px solid var(--primary);
+            color: #eee;
             background: #fff !important;
         }
     }
@@ -634,10 +691,10 @@ body {
             height: 56px;
         }
         .btn_grey {
-            background: $lg1;
+            background: (--secondary);
         }
         .btn_yellow {
-            background: $millie-yellow;
+            background: var(--primary);
         }
     }
     .btn1p2 {
