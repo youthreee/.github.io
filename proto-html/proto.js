@@ -24,15 +24,21 @@ function book(img, n, a, p) {
 
 $(function () {
     var input = $('[class^=input-search-]');
-
     input.on('click',function(){
         var $this = $(this);
         $this.addClass('focus')
         if($this.hasClass('input-search-main')){
             $this.toggleClass('spread');
         }
-    })
-
+    });
+    console.log(input.not());
+    
+    input.not().on('click',function(){
+        if(input.hasClass('spread')){
+            console.log("dd");
+            // input.removeClass('spread');
+        }
+    });
 
     var bk_list = $('.bk_list');
     var bk_infos = {

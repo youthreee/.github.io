@@ -265,7 +265,10 @@ body {
 }
 
 [class^=input-search-] {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -280,15 +283,18 @@ body {
 [class^=input-search-] input {
   width: 100%;
   padding: 16px 0;
+  height: 60px;
   padding-left: 44px;
   font-weight: bold;
   font-size: 20px;
   -webkit-box-shadow: var(--sdw-card);
           box-shadow: var(--sdw-card);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 [class^=input-search-] input:focus {
-  border: 0;
+  outline: 1px var(--focus);
 }
 
 [class^=input-search-]:before {
@@ -309,7 +315,7 @@ body {
 }
 
 .input-search-main {
-  padding: 24px;
+  padding: 24px 24px 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#FAFAF6), to(rgba(250, 250, 246, 0)));
   background: linear-gradient(180deg, #FAFAF6 0%, rgba(250, 250, 246, 0) 100%);
 }
@@ -325,15 +331,28 @@ body {
 
 .input-search-main.spread {
   padding: 24px 0;
+  background: #fff;
 }
 
 .input-search-main.spread input {
   border-width: 0 0 2px 0;
   border-radius: 0px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .input-search-main.spread:before {
   left: 12px;
+}
+
+.page-main {
+  padding: 110px 24px 0;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.page-main > * {
+  margin-bottom: 20px;
 }
 
 p {
